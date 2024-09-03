@@ -167,7 +167,7 @@ advance.addEventListener("click", function (e) {
                             console.log("attempted to shift down");
                         }
                         break;
-                    //make the div below turn black
+                    //make the div below turn black and stop at the bottom
                     case '2':
                     case '3':
                     case '4':
@@ -201,6 +201,7 @@ advance.addEventListener("click", function (e) {
             })
             break; 
         case "matrix(0, 1, -1, 0, 0, 0)":
+            //facing left
             console.log("Rotation 90");
 
             divs.forEach((div) => {
@@ -212,29 +213,10 @@ advance.addEventListener("click", function (e) {
 
 
                 switch (parent) {  // processing the parent divs index
-                    //case '13':
-                    // console.log("Registered the switch"); //registered
-                    // break;
-                    //make it move
-                    case '2':
-                    case '3':
-                    case '4':
-                    case '5':
+                    //make it move left
                     case '7':
-                    case '8':
-                    case '9':
-                    case '10':
-                    case '12':
                     case '13':
-                    case '14':
-                    case '15':
-                    case '17':
-                    case '18':
                     case '19':
-                    case '20':
-                    case '22':
-                    case '23':
-                    case '24':
                     case '25':
                         console.log("Move");
                         if (divIndexNumber == parentLefty) {
@@ -242,21 +224,41 @@ advance.addEventListener("click", function (e) {
                             console.log("attempted to shift left");
                         }
                         break;
-                    //make it stop at the left border
+                    //make it stop at the left border and walls
                     case '1':
+                    case '2':
+                    case '3':
+                    case '4':
+                    case '5':
                     case '6':
+                    case '8':
+                    case '9':
+                    case '10':
                     case '11':
+                    case '12':
+                    case '14':
+                    case '15':
                     case '16':
+                    case '17':
+                    case '18':
+                    case '20':
                     case '21':
+                    case '22':
+                    case '23':
+                    case '24':
                         console.log("do not advance"); //registered
-                        instructions.innerText = "Oops. There's nowhere *left* to go.";
+                        instructions.innerText = "You've hit a wall";
+                        if (divIndexNumber == parentLefty) {
+                            div.classList.add("wall");
+                            console.log("revealed a wall");
+                        }
                         break;
                 }
             })
             break;
         case "matrix(0, -1, 1, 0, 0, 0)":
+            //facing right
             console.log("Rotation -90");
-
             divs.forEach((div) => {
                 // isolate div index
                 const divIndex = div.getAttribute("index");

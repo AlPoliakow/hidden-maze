@@ -266,51 +266,52 @@ advance.addEventListener("click", function (e) {
                 const divIndexNumber = parseInt(divIndex);
                 //console.log(divIndexNumber);
 
-
                 switch (parent) {  // processing the parent divs index
-                    //case '13':
-                    // console.log("Registered the switch"); //registered
-                    // break;
                     //make it move
+                    case '6':
+                    case '12':
+                    case '18':
+                    case '24':
+                        console.log("Move right");
+                        if (divIndexNumber == parentRighty) {
+                            div.appendChild(gridBot);
+                            console.log("Moved right");
+                        }
+                        break;
+                    //make it stop at the right border and walls and reveal walls to right
                     case '1':
                     case '2':
                     case '3':
                     case '4':
-                    case '6':
+                    case '5':
                     case '7':
                     case '8':
                     case '9':
+                    case '10':
                     case '11':
-                    case '12':
                     case '13':
                     case '14':
+                    case '15':
                     case '16':
                     case '17':
-                    case '18':
                     case '19':
+                    case '20':
                     case '21':
                     case '22':
                     case '23':
-                    case '24':
-                        console.log("Move");
-                        if (divIndexNumber == parentRighty) {
-                            div.appendChild(gridBot);
-                            console.log("attempted to shift right");
-                        }
-                        break;
-                    //make it stop at the left border
-                    case '5':
-                    case '10':
-                    case '15':
-                    case '20':
                     case '25':
                         console.log("do not advance"); //registered
-                        instructions.innerText = "Oops. Two rights is not making a left.";
+                        if (divIndexNumber == parentRighty) {
+                            div.classList.add("wall");
+                            console.log("revealed a wall to the right");
+                        }
+                        instructions.innerText = "You've hit a wall";
                         break;
                 }
             })
             break;
         case "matrix(-1, 0, 0, -1, 0, 0)":
+            //facing up
             console.log("Rotation 180");
             divs.forEach((div) => {
                 // isolate div index
@@ -319,47 +320,46 @@ advance.addEventListener("click", function (e) {
                 const divIndexNumber = parseInt(divIndex);
                 //console.log(divIndexNumber);
 
-
                 switch (parent) {  // processing the parent divs index
-                    //case '13':
-                    // console.log("Registered the switch"); //registered
-                    // break;
-                    //make it move
-                    
+                    //make it move up
                     case '6':
-                    case '7':
-                    case '8':
-                    case '9':
-                    case '10':
-                    case '11':
                     case '12':
-                    case '13':
-                    case '14':
-                    case '15':
-                    case '16':
-                    case '17':
                     case '18':
-                    case '19':
-                    case '20':
-                    case '21':
-                    case '22':
-                    case '23':
                     case '24':
-                    case '25':
-                        console.log("Move");
+                        console.log("Move up");
                         if (divIndexNumber == parentUppy) {
                             div.appendChild(gridBot);
                             console.log("attempted to shift up");
                         }
                         break;
-                    //make it stop at the bottom border
+                    //make it stop at the top border and walls and reveal walls
                     case '1':
                     case '2':
                     case '3':
                     case '4':
                     case '5':
+                    case '7':
+                    case '8':
+                    case '9':
+                    case '10':
+                    case '11':
+                    case '13':
+                    case '14':
+                    case '15':
+                    case '16':
+                    case '17':
+                    case '19':
+                    case '20':
+                    case '21':
+                    case '22':
+                    case '23':
+                    case '25':
                         console.log("do not advance"); //registered
-                        instructions.innerText = "Oops. You've already reached the top.";
+                        instructions.innerText = "You've hit a wall";
+                        if (divIndexNumber == parentUppy) {
+                            div.classList.add("wall");
+                            console.log("revealed a wall");
+                        }
                         break;
                 }
             })

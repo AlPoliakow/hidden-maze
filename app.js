@@ -75,6 +75,7 @@ turns.appendChild(rotateUp);
 rotateUp.addEventListener("click", function (e) {
     e.preventDefault();
     gridBot.setAttribute("transform", `rotate(180)`);
+    instructions.innerText="Click the buttons to turn and move the robot";
     //console.log(robotInfo.getPropertyValue("transform"));// matrix(-1, 0, 0, -1, 0, 0)
 })
 
@@ -89,6 +90,7 @@ turns.appendChild(rotateLeft);
 rotateLeft.addEventListener("click", function (e) {
     e.preventDefault();
     gridBot.setAttribute("transform", `rotate(90)`);
+    instructions.innerText="Click the buttons to turn and move the robot";
     // console.log(robotInfo.getPropertyValue("transform")); // matrix(0, 1, -1, 0, 0, 0)
 })
 
@@ -101,6 +103,7 @@ turns.appendChild(rotateRight);
 rotateRight.addEventListener("click", function (e) {
     e.preventDefault();
     gridBot.setAttribute("transform", `rotate(-90)`);
+    instructions.innerText="Click the buttons to turn and move the robot";
     // console.log(robotInfo.getPropertyValue("transform")); //matrix(0, -1, 1, 0, 0, 0)
 })
 
@@ -115,6 +118,7 @@ turns.appendChild(rotateDown);
 rotateDown.addEventListener("click", function (e) {
     e.preventDefault();
     gridBot.setAttribute("transform", `rotate(0)`);
+    instructions.innerText="Click the buttons to turn and move the robot";
     //console.log(robotInfo.getPropertyValue("transform")); //matrix(1, 0, 0, 1, 0, 0)
 })
 

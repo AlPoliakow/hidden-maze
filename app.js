@@ -2,7 +2,7 @@ const app = document.querySelector(".app");
 
 // create the a heading
 const header = document.createElement("h1");
-header.innerText="Ro-bo-go-go";
+header.innerText="Hidden Maze";
 app.appendChild(header);
 
 // create a space for instructions

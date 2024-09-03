@@ -47,25 +47,20 @@ for (let i = 1; i < 26; i++) {
     // add each space to the board
     gameBoard.appendChild(gridItem);
 
-    //square 13 appendChild image
-    if (i == 13) {
-        const iconPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-
-        gridBot.setAttribute('fill', '#5c5c5c'); //colours it in
-        gridBot.setAttribute('viewBox', '0 0 640 512'); //from svg link
-        gridBot.setAttribute('stroke', '#5c5c5c'); // color
-        gridBot.setAttribute("transform", `rotate(0)`); // to make advancing work before button pressing
-
-        iconPath.setAttribute("d", "M320 0c17.7 0 32 14.3 32 32l0 64 120 0c39.8 0 72 32.2 72 72l0 272c0 39.8-32.2 72-72 72l-304 0c-39.8 0-72-32.2-72-72l0-272c0-39.8 32.2-72 72-72l120 0 0-64c0-17.7 14.3-32 32-32zM208 384c-8.8 0-16 7.2-16 16s7.2 16 16 16l32 0c8.8 0 16-7.2 16-16s-7.2-16-16-16l-32 0zm96 0c-8.8 0-16 7.2-16 16s7.2 16 16 16l32 0c8.8 0 16-7.2 16-16s-7.2-16-16-16l-32 0zm96 0c-8.8 0-16 7.2-16 16s7.2 16 16 16l32 0c8.8 0 16-7.2 16-16s-7.2-16-16-16l-32 0zM264 256a40 40 0 1 0 -80 0 40 40 0 1 0 80 0zm152 40a40 40 0 1 0 0-80 40 40 0 1 0 0 80zM48 224l16 0 0 192-16 0c-26.5 0-48-21.5-48-48l0-96c0-26.5 21.5-48 48-48zm544 0c26.5 0 48 21.5 48 48l0 96c0 26.5-21.5 48-48 48l-16 0 0-192 16 0z");
-        iconPath.setAttribute('stroke-width', '6'); //thickness of lines
-        gridBot.appendChild(iconPath);
-        gridBot.classList.add("robot");
-
-
-        gridItem.appendChild(gridBot);
-        console.log(gridItem);
-    }
 }
+
+ // create creature 
+ const iconPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+ gridBot.setAttribute('fill', '#5c5c5c'); //colours it in
+ gridBot.setAttribute('viewBox', '0 0 640 512'); //from svg link
+ gridBot.setAttribute('stroke', '#5c5c5c'); // color
+ gridBot.setAttribute("transform", `rotate(0)`); // to make advancing work before button pressing
+ iconPath.setAttribute("d", "M320 0c17.7 0 32 14.3 32 32l0 64 120 0c39.8 0 72 32.2 72 72l0 272c0 39.8-32.2 72-72 72l-304 0c-39.8 0-72-32.2-72-72l0-272c0-39.8 32.2-72 72-72l120 0 0-64c0-17.7 14.3-32 32-32zM208 384c-8.8 0-16 7.2-16 16s7.2 16 16 16l32 0c8.8 0 16-7.2 16-16s-7.2-16-16-16l-32 0zm96 0c-8.8 0-16 7.2-16 16s7.2 16 16 16l32 0c8.8 0 16-7.2 16-16s-7.2-16-16-16l-32 0zm96 0c-8.8 0-16 7.2-16 16s7.2 16 16 16l32 0c8.8 0 16-7.2 16-16s-7.2-16-16-16l-32 0zM264 256a40 40 0 1 0 -80 0 40 40 0 1 0 80 0zm152 40a40 40 0 1 0 0-80 40 40 0 1 0 0 80zM48 224l16 0 0 192-16 0c-26.5 0-48-21.5-48-48l0-96c0-26.5 21.5-48 48-48zm544 0c26.5 0 48 21.5 48 48l0 96c0 26.5-21.5 48-48 48l-16 0 0-192 16 0z");
+ iconPath.setAttribute('stroke-width', '6'); //thickness of lines
+ gridBot.appendChild(iconPath);
+ gridBot.classList.add("robot");
+ //append creature to first div
+ gameBoard.firstChild.append(gridBot);
 
 // get all divs
 const divs = document.querySelectorAll(".space");

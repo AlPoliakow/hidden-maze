@@ -393,6 +393,7 @@ advance.addEventListener("click", function (e) {
     const checkForWin = function () {
         if (gridBot.parentElement.getAttribute("index") == 25) {
             instructions.innerText = "You made it!";
+            instructions.classList.add("win");
             console.log("Win");
         }
     };

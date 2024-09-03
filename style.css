@@ -33,6 +33,7 @@ h1 {
     font-style: normal;
     margin-bottom: 40px;
     border:black 2px dotted;
+    padding: 30px;
 }
 
 
@@ -131,4 +132,10 @@ button:hover{
     font-style: normal;
 }
 
+.win{
+    border: 5px dotted black;
+    font-size: 2em;
+    padding:   15px;
+    width: 500px;
+}
 

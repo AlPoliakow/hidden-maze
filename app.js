@@ -51,7 +51,7 @@ for (let i = 1; i < 26; i++) {
 // get all divs
 const divs = document.querySelectorAll(".space");
 
- // allocate start and finish squares
+// allocate start and finish squares
 divs.forEach((div) => {
     // isolate div index
     const divIndex = div.getAttribute("index");
@@ -59,14 +59,14 @@ divs.forEach((div) => {
     const divIndexNumber = parseInt(divIndex);
     //console.log(divIndexNumber);
     //if (divIndexNumber == 1) {
-       // div.innerHTML = `<p class="start">Start</p>`;
-        //console.log("Show start");
-       // div.style.background="green";
-   // }
+    // div.innerHTML = `<p class="start">Start</p>`;
+    //console.log("Show start");
+    // div.style.background="green";
+    // }
     if (divIndexNumber == 25) {
         div.innerHTML = `<p class="finish">Finish</p>`;
         console.log("Show Finish");
-        div.style.background="red";
+        div.style.background = "red";
     }
 });
 
@@ -388,4 +388,14 @@ advance.addEventListener("click", function (e) {
             })
             break;
     }
+
+    //check to see if the creature has reached the end 
+    const checkForWin = function () {
+        if (gridBot.parentElement.getAttribute("index") == 25) {
+            instructions.innerText = "You made it!";
+            console.log("Win");
+        }
+    };
+    checkForWin();
 })
+

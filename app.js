@@ -540,7 +540,7 @@ levelTwo.addEventListener("click", function (e) {
     advance.addEventListener("click", function (e) {
         e.preventDefault();
         //console.log("clicked");
-        let parent = gridBot.parentElement.getAttribute("index");
+        const parent = gridBot.parentElement.getAttribute("index");
         console.log(parent); // 13
         let parentNumber = parseInt(parent);
         console.log(parentNumber);
@@ -567,49 +567,20 @@ levelTwo.addEventListener("click", function (e) {
                     const divIndexNumber = parseInt(divIndex);
                     //console.log(divIndexNumber);
 
-
-                    switch (parent) {  // processing the parent divs index
-                        //make the creature shift down a space if parent >10
-                        case '1':
-                        case '10':
-                        case '11':
-                        case '20':
-                        case '21':
-                        case '25':
-                        case '30':
-                        case '35':
-                        case '40':
-                        case '45':
-                        case '53':
-                        case '60':
-                        case '62':
-                        case '70':
-                        case '71':
-                        case '80':
-                        case '81':
-                        case '85':
-                        case '90':
-                            console.log("Move");
-                            if (divIndexNumber == parentUndery) {
-                                div.appendChild(gridBot);
-                                console.log("attempted to shift down");
-                            }
-                            break;
-                        //make the div below turn black and stop at the bottom
-                        case '>1' & '<10':
-                        case '>11' & '<20':
-                        case '>21' & '<25':
-                        case '>25' & '<30':
-                        case '>30' & '<35':
-                            console.log("do not advance"); //registered
-                            instructions.innerText = "You've hit a wall";
+                    if ( parent == 1 | parent == 11 |parent == 20 | parent == 21 | parent == 25 | parent == 30 |parent == 35 | parent == 40 | parent == 45 | parent == 53 |parent == 60 | parent == 62 |parent == 70 | parent == 71 |parent == 80 | parent == 81 | parent == 85 | parent == 90){
+                        if (divIndexNumber == parentUndery) {
+                            div.appendChild(gridBot);
+                            console.log("attempted to shift down");
+                        }
+                    } else {
+                        instructions.innerText = "You've hit a wall";
                             //select for the div below 
-                            // if (divIndexNumber == parentUndery) {
-                            // div.classList.add("wall");
-                            // console.log("revealed a wall");
+                            if (divIndexNumber == parentUndery) {
+                            div.classList.add("wall");
+                             console.log("revealed a wall");
                             //}
-                            break;
                     }
+                }
                 })
                 break;
             case "matrix(0, 1, -1, 0, 0, 0)":

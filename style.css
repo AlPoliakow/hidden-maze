@@ -24,17 +24,29 @@ h1 {
 }
 
 .instructions {
-    /*width:500px;*/
-    text-align: center;
+    width:500px;
     font-family: "Roboto", sans-serif;
     font-weight: 600;
     padding: 1em;
     font-size: 1em;
     font-style: normal;
-    margin-bottom: 40px;
+    margin: 40px 0;
     border:black 2px dotted;
-    padding: 30px;
 }
+
+.instructions h2{
+    margin:0;
+}
+
+.levels {
+    margin-bottom: 30px;
+}
+
+.levels button{
+    margin: 5px;
+}
+
+
 
 
 .gameboard {
@@ -65,6 +77,17 @@ h1 {
     justify-content: center;
 }
 
+.grid-item2 {
+    height: 50px;
+    width: 50px;
+    background: #FFFFFF;
+    box-sizing: border-box;
+    border: 1px solid #e15a1d;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
 .wall {
     background: black;
 }
@@ -80,10 +103,29 @@ h1 {
     font-size:1.8em;
 }
 
+.start2, 
+.finish2 {
+    z-index:0;
+    margin:20px;
+    position: absolute;
+    color: #FFFFFF;
+    font-family: "Roboto", sans-serif;
+    font-weight: 600;
+    font-size:0.6em;
+}
+
 .robot {
     height: 80px;
     width:80px;
     margin: 10px;
+    z-index: 2;
+    position:absolute;
+}
+
+.robot2{
+    height:40px;
+    width:40px;
+    margin: 5px;
     z-index: 2;
     position:absolute;
 }
@@ -137,5 +179,10 @@ button:hover{
     font-size: 2em;
     padding:   15px;
     width: 500px;
+}
+
+/*needs to be after display:flex */
+.hide{
+    display: none;
 }
 

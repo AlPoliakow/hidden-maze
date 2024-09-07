@@ -206,8 +206,11 @@ demoLevel.addEventListener("click", function (e) {
                     switch (parent) {  // processing the parent divs index
                         //make the creature shift down a space
                         case '1':
+                        case '4':
                         case '7':
+                        case '9':
                         case '13':
+                        case '14':
                         case '19':
                             console.log("Move");
                             if (divIndexNumber == parentUndery) {
@@ -218,15 +221,12 @@ demoLevel.addEventListener("click", function (e) {
                         //make the div below turn black and stop at the bottom
                         case '2':
                         case '3':
-                        case '4':
                         case '5':
                         case '6':
                         case '8':
-                        case '9':
                         case '10':
                         case '11':
                         case '12':
-                        case '14':
                         case '15':
                         case '16':
                         case '17':
@@ -259,11 +259,12 @@ demoLevel.addEventListener("click", function (e) {
                     const divIndexNumber = parseInt(divIndex);
                     //console.log(divIndexNumber);
 
-
                     switch (parent) {  // processing the parent divs index
                         //make it move left
                         case '7':
                         case '13':
+                        case '14':
+                        case '15':
                         case '19':
                         case '25':
                             console.log("Move");
@@ -284,8 +285,6 @@ demoLevel.addEventListener("click", function (e) {
                         case '10':
                         case '11':
                         case '12':
-                        case '14':
-                        case '15':
                         case '16':
                         case '17':
                         case '18':
@@ -318,6 +317,8 @@ demoLevel.addEventListener("click", function (e) {
                         //make it move
                         case '6':
                         case '12':
+                        case '13':
+                        case '14':
                         case '18':
                         case '24':
                             console.log("Move right");
@@ -337,8 +338,6 @@ demoLevel.addEventListener("click", function (e) {
                         case '9':
                         case '10':
                         case '11':
-                        case '13':
-                        case '14':
                         case '15':
                         case '16':
                         case '17':
@@ -371,8 +370,11 @@ demoLevel.addEventListener("click", function (e) {
                     switch (parent) {  // processing the parent divs index
                         //make it move up
                         case '6':
+                        case '9':
                         case '12':
+                        case '14':
                         case '18':
+                        case '19':
                         case '24':
                             console.log("Move up");
                             if (divIndexNumber == parentUppy) {
@@ -388,11 +390,9 @@ demoLevel.addEventListener("click", function (e) {
                         case '5':
                         case '7':
                         case '8':
-                        case '9':
                         case '10':
                         case '11':
                         case '13':
-                        case '14':
                         case '15':
                         case '16':
                         case '17':
@@ -417,8 +417,9 @@ demoLevel.addEventListener("click", function (e) {
         //check to see if the creature has reached the end 
         const checkForWin = function () {
             if (gridBot.parentElement.getAttribute("index") == 25) {
-                instructions.innerText = "You made it!";
-                instructions.classList.add("win");
+                instructionsHeading.innerText = "You made it!";
+                instructions.classList.add("hide");
+                instructionsDiv.classList.add("win");
                 console.log("Win");
             }
         };
@@ -567,7 +568,7 @@ levelTwo.addEventListener("click", function (e) {
                     const divIndexNumber = parseInt(divIndex);
                     //console.log(divIndexNumber);
 
-                    if (parent == 1 | parent == 7 | parent == 17 | parent == 10 | parent == 11 | parent == 20 | parent == 21 | parent == 23 | parent == 25 | parent == 28 | parent == 30 | parent == 35 | parent == 38 |parent == 40 | parent == 45 | parent == 47 | parent == 50 | parent == 53 | parent == 57 |  parent == 60 | parent == 62 | parent == 67 | parent == 70 | parent == 71 | parent == 78 |  parent == 80 | parent == 81 | parent == 83 | parent == 85 | parent == 88 | parent == 90) {
+                    if (parent == 1 | parent == 7 | parent == 17 | parent == 10 | parent == 11 | parent == 20 | parent == 21 | parent == 23 | parent == 25 | parent == 28 | parent == 30 | parent == 35 | parent == 38 | parent == 40 | parent == 45 | parent == 47 | parent == 50 | parent == 53 | parent == 57 | parent == 60 | parent == 62 | parent == 67 | parent == 70 | parent == 71 | parent == 78 | parent == 80 | parent == 81 | parent == 83 | parent == 85 | parent == 88 | parent == 90) {
                         if (divIndexNumber == parentUndery) {
                             div.appendChild(gridBot);
                             console.log("attempted to shift down");
@@ -599,16 +600,16 @@ levelTwo.addEventListener("click", function (e) {
                             div.appendChild(gridBot);
                             console.log("attempted to shift left");
                         }
-                     } else if (parent == 1 | parent == 11 | parent == 21 | parent == 71 | parent == 81 | parent == 91) {
-                            instructions.innerText = "You've hit a wall";
-                        } else {
-                            instructions.innerText = "You've hit a wall";
-                            //select for the div below 
-                            if (divIndexNumber == parentLefty) {
-                                div.classList.add("wall");
-                                console.log("revealed a wall");
-                            }
+                    } else if (parent == 1 | parent == 11 | parent == 21 | parent == 71 | parent == 81 | parent == 91) {
+                        instructions.innerText = "You've hit a wall";
+                    } else {
+                        instructions.innerText = "You've hit a wall";
+                        //select for the div below 
+                        if (divIndexNumber == parentLefty) {
+                            div.classList.add("wall");
+                            console.log("revealed a wall");
                         }
+                    }
                 })
                 break;
             case "matrix(0, -1, 1, 0, 0, 0)":
@@ -651,17 +652,17 @@ levelTwo.addEventListener("click", function (e) {
                         if (divIndexNumber == parentUppy) {
                             div.appendChild(gridBot);
                             console.log("attempted to shift up");
-                        } 
+                        }
                     } else if (parent == 1 | parent == 7 | parent == 8 | parent == 9 | parent == 10) {
                         instructions.innerText = "You've hit a wall";
                     } else {
-                            instructions.innerText = "You've hit a wall";
-                            //select for the div below 
-                            if (divIndexNumber == parentUppy) {
-                                div.classList.add("wall");
-                                console.log("revealed a wall");
-                            }
+                        instructions.innerText = "You've hit a wall";
+                        //select for the div below 
+                        if (divIndexNumber == parentUppy) {
+                            div.classList.add("wall");
+                            console.log("revealed a wall");
                         }
+                    }
                 })
                 break;
         }
@@ -670,7 +671,7 @@ levelTwo.addEventListener("click", function (e) {
         const checkForWin = function () {
             if (gridBot.parentElement.getAttribute("index") == 100) {
                 instructionsHeading.innerText = "You made it!";
-                instructions.innerText="";
+                instructions.classList.add("hide");
                 instructionsDiv.classList.add("win");
                 console.log("Win");
             }

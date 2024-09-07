@@ -273,13 +273,16 @@ demoLevel.addEventListener("click", function (e) {
                                 console.log("attempted to shift left");
                             }
                             break;
-                        //make it stop at the left border and walls
+                        //make it stop at the left border 
                         case '1':
+                        case '6':
+                            instructions.innerText = "You've hit a wall";
+                            break;
+                        // make it stop and reveal walls
                         case '2':
                         case '3':
                         case '4':
                         case '5':
-                        case '6':
                         case '8':
                         case '9':
                         case '10':
@@ -327,7 +330,11 @@ demoLevel.addEventListener("click", function (e) {
                                 console.log("Moved right");
                             }
                             break;
-                        //make it stop at the right border and walls and reveal walls to right
+                        //make it stop at the right border 
+                        case '15':
+                            instructions.innerText = "You've hit a wall";
+                            break;
+                        //make it stop and reveal walls to right
                         case '1':
                         case '2':
                         case '3':
@@ -568,7 +575,7 @@ levelTwo.addEventListener("click", function (e) {
                     const divIndexNumber = parseInt(divIndex);
                     //console.log(divIndexNumber);
 
-                    if (parent == 1 | parent == 3 | parent == 5 | parent == 7 | parent == 13 | parent == 15 | parent == 17 | parent == 10 | parent == 11 | parent == 20 | parent == 21 | parent == 23 | parent == 25 | parent == 28 | parent == 30 | parent == 31 |parent == 35 | parent == 38 | parent == 40 | parent == 45 | parent == 47 | parent == 50 | parent == 53 | parent == 55 | parent == 57 | parent == 60 | parent == 62 | parent == 67 | parent == 70 | parent == 71 | parent == 78 | parent == 80 | parent == 81 | parent == 83 | parent == 85 | parent == 88 | parent == 90) {
+                    if (parent == 1 | parent == 3 | parent == 5 | parent == 7 | parent == 13 | parent == 15 | parent == 17 | parent == 10 | parent == 11 | parent == 20 | parent == 21 | parent == 23 | parent == 25 | parent == 28 | parent == 30 | parent == 31 | parent == 35 | parent == 38 | parent == 40 | parent == 45 | parent == 47 | parent == 50 | parent == 53 | parent == 55 | parent == 57 | parent == 60 | parent == 62 | parent == 67 | parent == 70 | parent == 71 | parent == 78 | parent == 80 | parent == 81 | parent == 83 | parent == 85 | parent == 88 | parent == 90) {
                         if (divIndexNumber == parentUndery) {
                             div.appendChild(gridBot);
                             console.log("attempted to shift down");
@@ -621,7 +628,7 @@ levelTwo.addEventListener("click", function (e) {
                     //console.log(divIndex);
                     const divIndexNumber = parseInt(divIndex);
                     //console.log(divIndexNumber);
-                    if (parent == 7 | parent == 8 | parent == 9 | parent == 23 | parent == 24 | parent == 27 | parent == 31 | parent == 32 | parent == 35 |parent == 47 | parent == 53 | parent == 54 | parent == 62 | parent == 71 | parent == 77 | parent == 83 | parent == 84 | parent == 91 | parent == 92 | parent == 95 | parent == 96 | parent == 97) {
+                    if (parent == 7 | parent == 8 | parent == 9 | parent == 23 | parent == 24 | parent == 27 | parent == 31 | parent == 32 | parent == 35 | parent == 47 | parent == 53 | parent == 54 | parent == 62 | parent == 71 | parent == 77 | parent == 83 | parent == 84 | parent == 91 | parent == 92 | parent == 95 | parent == 96 | parent == 97) {
                         if (divIndexNumber == parentRighty) {
                             div.appendChild(gridBot);
                             console.log("attempted to shift right");
@@ -653,7 +660,7 @@ levelTwo.addEventListener("click", function (e) {
                             div.appendChild(gridBot);
                             console.log("attempted to shift up");
                         }
-                    } else if (parent == 1 | parent == 3 | parent == 5 |parent == 7 | parent == 8 | parent == 9 | parent == 10) {
+                    } else if (parent == 1 | parent == 3 | parent == 5 | parent == 7 | parent == 8 | parent == 9 | parent == 10) {
                         instructions.innerText = "You've hit a wall";
                     } else {
                         instructions.innerText = "You've hit a wall";

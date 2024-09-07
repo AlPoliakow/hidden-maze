@@ -14,7 +14,15 @@ instructionsDiv.appendChild(instructionsHeading);
 instructions.innerText = "Please select a level";
 instructionsDiv.classList.add("instructions");
 instructionsDiv.appendChild(instructions);
+instructionsDiv.classList.add("instructionsStart");
 app.appendChild(instructionsDiv);
+
+//create Start again button
+const startAgain = document.createElement("button");
+startAgain.innerText = "Start again";
+startAgain.classList.add("startAgain");
+startAgain.classList.add("hide");
+app.appendChild(startAgain);
 
 // create control buttons section
 const controls = document.createElement("div");
@@ -32,16 +40,17 @@ levelSelect.classList.add("levels");
 app.appendChild(levelSelect);
 //demo level button
 const demoLevel = document.createElement("button");
-demoLevel.innerText = "Level One";
+demoLevel.innerText = "Level 1";
 levelSelect.appendChild(demoLevel);
 // level 2 button
 const levelTwo = document.createElement("button");
-levelTwo.innerText = "Level Two";
+levelTwo.innerText = "Level 2";
 levelSelect.appendChild(levelTwo);
 
 // create div for gameboard
 const gameBoard = document.createElement("div");
 gameBoard.classList.add("gameboard");
+gameBoard.classList.add("hide");
 app.appendChild(gameBoard);
 
 //create written by section
@@ -59,8 +68,11 @@ const robotTransform = robotInfo.getPropertyValue("transform");
 // create a 5x5 gameboard on Level One button click
 demoLevel.addEventListener("click", function (e) {
     //show controls
+    gameBoard.classList.remove("hide");
     controls.classList.remove("hide");
     turns.classList.remove("hide");
+    instructionsDiv.classList.remove("instructionsStart");
+    instructions.innerText = "Click the buttons to turn and move the robot";
     //hide select level buttons
     levelSelect.classList.add("hide");
     for (let i = 1; i < 26; i++) {
@@ -80,18 +92,12 @@ demoLevel.addEventListener("click", function (e) {
     divs.forEach((div) => {
         // isolate div index
         const divIndex = div.getAttribute("index");
-        //console.log(divIndex);
         const divIndexNumber = parseInt(divIndex);
-        //console.log(divIndexNumber);
-        //if (divIndexNumber == 1) {
-        // div.innerHTML = `<p class="start">Start</p>`;
-        //console.log("Show start");
-        // div.style.background="green";
-        // }
+        // select for the 25th space
         if (divIndexNumber == 25) {
             div.innerHTML = `<p class="finish">Finish</p>`;
             console.log("Show Finish");
-            div.style.background = "red";
+            div.style.background = " #58b85d";
         }
     });
 
@@ -427,7 +433,23 @@ demoLevel.addEventListener("click", function (e) {
                 instructionsHeading.innerText = "You made it!";
                 instructions.classList.add("hide");
                 instructionsDiv.classList.add("win");
-                console.log("Win");
+                controls.classList.add("hide");
+                turns.classList.add("hide");
+                startAgain.classList.remove("hide");
+                gridBot.setAttribute("transform", `rotate(0)`);
+
+                //change finish div appearance
+                divs.forEach((div) => {
+                    // isolate div index
+                    const divIndex = div.getAttribute("index");
+                    const divIndexNumber = parseInt(divIndex);
+                    // select for the 25th space
+                    if (divIndexNumber == 25) {
+                        const finishText = document.querySelector(".finish");
+                        finishText.innerText ="";
+                        console.log("Show Finish");
+                    }
+                });
             }
         };
         checkForWin();
@@ -436,8 +458,10 @@ demoLevel.addEventListener("click", function (e) {
 
 levelTwo.addEventListener("click", function (e) {
     //show controls
+    gameBoard.classList.remove("hide");
     controls.classList.remove("hide");
     turns.classList.remove("hide");
+    instructionsDiv.classList.remove("instructionsStart");
     //hide select level buttons
     levelSelect.classList.add("hide");
 
@@ -464,7 +488,7 @@ levelTwo.addEventListener("click", function (e) {
         if (divIndexNumber == 100) {
             div.innerHTML = `<p class="finish2">Finish</p>`; //class changed for size adaptations
             console.log("Show Finish");
-            div.style.background = "red";
+            div.style.background = " #58b85d";
         }
     });
 
@@ -680,7 +704,23 @@ levelTwo.addEventListener("click", function (e) {
                 instructionsHeading.innerText = "You made it!";
                 instructions.classList.add("hide");
                 instructionsDiv.classList.add("win");
-                console.log("Win");
+                controls.classList.add("hide");
+                turns.classList.add("hide");
+                startAgain.classList.remove("hide");
+               gridBot.setAttribute("transform", `rotate(0)`);
+
+                //change finish div appearance
+                divs.forEach((div) => {
+                    // isolate div index
+                    const divIndex = div.getAttribute("index");
+                    const divIndexNumber = parseInt(divIndex);
+                    // select for the 25th space
+                    if (divIndexNumber == 25) {
+                        const finishText = document.querySelector(".finish");
+                        finishText.innerText ="";
+                        console.log("Show Finish");
+                    }
+                });
             }
         };
         checkForWin();

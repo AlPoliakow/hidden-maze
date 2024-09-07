@@ -9,53 +9,75 @@ body {
     justify-content: center;
     flex-flow: row wrap;
     max-width: 550px;
+    font-family: "Noto Serif", serif;
+    font-weight: 700;
 }
 
 h1 {
-    font-family: "Roboto", sans-serif;
+    font-family: "Cinzel", serif;
     font-weight: 900;
-    font-size: 3.5em;
+    font-size: 4em;
     font-style: normal;
-    color:#e15a1d;
+    color: #044707;
     width: 100%;
     text-align: center;
     text-transform: uppercase;
-    margin-bottom:10px;
+    margin: 30px 0 10px 0;
 }
 
+
 .instructions {
-    width:500px;
-    font-family: "Roboto", sans-serif;
-    font-weight: 600;
+    width:400px;
     padding: 1em;
     font-size: 1em;
     font-style: normal;
-    margin: 40px 0;
+    margin: 10px 0 30px 0;
     border:black 2px dotted;
+}
+
+.instructionsStart{
+    margin-top: 50px;
 }
 
 .instructions h2{
     margin:0;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 1em;
+}
+
+.startAgain {
+    margin: 0 0 30px 0;
+    padding: 0.5em;
+    font-size:2em;
+    font-weight: 600;
+    background: #58b85d;
+    text-transform: uppercase;
 }
 
 .levels {
-    margin-bottom: 30px;
+    margin: 100px 0 300px 0;
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
 }
 
 .levels button{
-    margin: 5px;
+    font-size: 4em;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 0.5em;
+    background: #58b85d;
 }
-
-
-
 
 .gameboard {
     height: 500px;
     width: 500px;
-    background-color: gray;
+    background-color: #044707;
     display: flex;
     flex-flow: row wrap;
-    border: 2px solid #e15a1d;
+    border: 3px solid #044707;
     margin-bottom: 20px;
 }
 
@@ -71,7 +93,7 @@ h1 {
     width: 100px;
     background: #FFFFFF;
     box-sizing: border-box;
-    border: 1px solid #e15a1d;
+    border: 1px solid #044707;
     position: relative;
     display: flex;
     justify-content: center;
@@ -89,7 +111,7 @@ h1 {
 }
 
 .wall {
-    background: black;
+    background: #044707;
 }
 
 .start, 
@@ -98,7 +120,6 @@ h1 {
     margin:30px;
     position: absolute;
     color: #FFFFFF;
-    font-family: "Roboto", sans-serif;
     font-weight: 600;
     font-size:1.8em;
 }
@@ -109,7 +130,6 @@ h1 {
     margin:20px;
     position: absolute;
     color: #FFFFFF;
-    font-family: "Roboto", sans-serif;
     font-weight: 600;
     font-size:0.6em;
 }
@@ -149,12 +169,12 @@ h1 {
 }
 
 button {
-    font-family: "Roboto", sans-serif;
     font-weight: 400;
     font-size: 0.9em;
     font-style: normal;
     background:#FFFFFF;
     border-radius: 1em;
+    font-family: "Bitter", serif;
 }
 
 button:hover{
@@ -168,7 +188,6 @@ button:hover{
 
 .by {
     text-align: center;
-    font-family: "Roboto", sans-serif;
     font-weight: 400;
     font-size: 1em;
     font-style: normal;

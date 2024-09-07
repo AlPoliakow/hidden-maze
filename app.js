@@ -34,6 +34,22 @@ turns.classList.add("turns");
 turns.classList.add("hide");
 controls.appendChild(turns);
 
+// create re-start function
+startAgain.addEventListener("click", function (e) {
+    startAgain.classList.add("hide");
+    levelSelect.classList.remove("hide");
+    gameBoard.classList.add("hide");
+    gameBoard.innerHTML="";
+    instructionsHeading.innerText = "Instructions:";
+    instructions.classList.remove("hide");
+    instructions.innerText = "Please select a level";
+    instructionsDiv.classList.remove("win");
+    //to re-set controls content 
+    controls.innerHTML=""; 
+    turns.innerHTML = "";
+    controls.appendChild(turns);
+})
+
 // create section for buttons for level selection
 const levelSelect = document.createElement("div");
 levelSelect.classList.add("levels");
@@ -470,7 +486,7 @@ levelTwo.addEventListener("click", function (e) {
         gridItem.classList.add("grid-item2"); // different class for different size spaces
         // add index attribute 
         gridItem.setAttribute("index", i);
-        gridItem.innerText = i;
+       // gridItem.innerText = i;
         // add each space to the board
         gameBoard.appendChild(gridItem);
     }

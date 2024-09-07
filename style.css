@@ -179,6 +179,7 @@ button:hover{
     font-size: 2em;
     padding:   15px;
     width: 500px;
+    text-align: center;
 }
 
 /*needs to be after display:flex */

@@ -567,25 +567,26 @@ levelTwo.addEventListener("click", function (e) {
                     const divIndexNumber = parseInt(divIndex);
                     //console.log(divIndexNumber);
 
-                    if ( parent == 1 | parent == 11 |parent == 20 | parent == 21 | parent == 25 | parent == 30 |parent == 35 | parent == 40 | parent == 45 | parent == 53 |parent == 60 | parent == 62 |parent == 70 | parent == 71 |parent == 80 | parent == 81 | parent == 85 | parent == 90){
+                    if (parent == 1 | parent == 7 | parent == 17 | parent == 10 | parent == 11 | parent == 20 | parent == 21 | parent == 23 | parent == 25 | parent == 28 | parent == 30 | parent == 35 | parent == 38 |parent == 40 | parent == 45 | parent == 47 | parent == 50 | parent == 53 | parent == 57 |  parent == 60 | parent == 62 | parent == 67 | parent == 70 | parent == 71 | parent == 78 |  parent == 80 | parent == 81 | parent == 83 | parent == 85 | parent == 88 | parent == 90) {
                         if (divIndexNumber == parentUndery) {
                             div.appendChild(gridBot);
                             console.log("attempted to shift down");
                         }
+                    } else if (parent == 91 | parent == 92 | parent == 93 | parent == 95 | parent == 96 | parent == 97 | parent == 98 | parent == 100) {
+                        instructions.innerText = "You've hit a wall";
                     } else {
                         instructions.innerText = "You've hit a wall";
-                            //select for the div below 
-                            if (divIndexNumber == parentUndery) {
+                        //select for the div below 
+                        if (divIndexNumber == parentUndery) {
                             div.classList.add("wall");
-                             console.log("revealed a wall");
+                            console.log("revealed a wall");
                             //}
+                        }
                     }
-                }
                 })
                 break;
             case "matrix(0, 1, -1, 0, 0, 0)":
                 //facing left
-                //console.log("Rotation 90");
                 divs.forEach((div) => {
                     // isolate div index
                     const divIndex = div.getAttribute("index");
@@ -593,60 +594,21 @@ levelTwo.addEventListener("click", function (e) {
                     const divIndexNumber = parseInt(divIndex);
                     //console.log(divIndexNumber);
 
-                    if ( parent == 28 | parent == 54 |parent == 55 | parent == 63 | parent == 72 | parent == 78){
+                    if (parent == 8 | parent == 9 | parent == 10 | parent == 24 | parent == 25 | parent == 28 | parent == 32 | parent == 33 | parent == 54 | parent == 55 | parent == 58 | parent == 63 | parent == 72 | parent == 78 | parent == 84 | parent == 85 | parent == 92 | parent == 93 | parent == 96 | parent == 97 | parent == 98) {
                         if (divIndexNumber == parentLefty) {
                             div.appendChild(gridBot);
                             console.log("attempted to shift left");
                         }
-                    } else {
-                        instructions.innerText = "You've hit a wall";
+                     } else if (parent == 1 | parent == 11 | parent == 21 | parent == 71 | parent == 81 | parent == 91) {
+                            instructions.innerText = "You've hit a wall";
+                        } else {
+                            instructions.innerText = "You've hit a wall";
                             //select for the div below 
                             if (divIndexNumber == parentLefty) {
-                            div.classList.add("wall");
-                             console.log("revealed a wall");
+                                div.classList.add("wall");
+                                console.log("revealed a wall");
                             }
-                    }
-                    //switch (parent) {  // processing the parent divs index
-                        //make it move left
-                        //case '2':
-                       // case '7':
-                       // case '13':
-                       // case '19':
-                      //  case '25':
-                          //  console.log("Move");
-                        //    if (divIndexNumber == parentLefty) {
-                            //    div.appendChild(gridBot);
-                          //      console.log("attempted to shift left");
-                        //    }
-                         //   break;
-                        //make it stop at the left border and walls
-                        //case '1':
-                        //case '3':
-                       // case '4':
-                      //  case '5':
-                      //  case '6':
-                      //  case '8':
-                      //  case '9':
-                     //   case '10':
-                       // case '11':
-                       // case '12':
-                       // case '14':
-                     //   case '15':
-                     //   case '16':
-                     //   case '17':
-                     //   case '18':
-                       // case '20':
-                      //  case '21':
-                     //  case '22':
-                       // case '23':
-                      //  case '24':
-                           // console.log("do not advance"); //registered
-                           // instructions.innerText = "You've hit a wall";
-                          //  if (divIndexNumber == parentLefty) {
-                          //      div.classList.add("wall");
-                          //      console.log("revealed a wall");
-                     //       }
-                     //       break;
+                        }
                 })
                 break;
             case "matrix(0, -1, 1, 0, 0, 0)":
@@ -658,18 +620,20 @@ levelTwo.addEventListener("click", function (e) {
                     //console.log(divIndex);
                     const divIndexNumber = parseInt(divIndex);
                     //console.log(divIndexNumber);
-                    if ( parent == 7 | parent == 8 |parent == 9 | parent == 23 | parent == 24 | parent == 31 | parent == 32 | parent == 47 | parent == 83 | parent == 84 | parent == 91 | parent == 92 | parent == 95 | parent == 96 | parent == 97){
+                    if (parent == 7 | parent == 8 | parent == 9 | parent == 23 | parent == 24 | parent == 27 | parent == 31 | parent == 32 | parent == 47 | parent == 53 | parent == 54 | parent == 62 | parent == 71 | parent == 77 | parent == 83 | parent == 84 | parent == 91 | parent == 92 | parent == 95 | parent == 96 | parent == 97) {
                         if (divIndexNumber == parentRighty) {
                             div.appendChild(gridBot);
                             console.log("attempted to shift right");
                         }
+                    } else if (parent == 10 | parent == 20 | parent == 30 | parent == 40 | parent == 50 | parent == 60 | parent == 70 | parent == 80 | parent == 90 | parent == 100) {
+                        instructions.innerText = "You've hit a wall";
                     } else {
                         instructions.innerText = "You've hit a wall";
-                            //select for the div below 
-                            if (divIndexNumber == parentRighty) {
+                        //select for the div below 
+                        if (divIndexNumber == parentRighty) {
                             div.classList.add("wall");
-                             console.log("revealed a wall");
-                            }
+                            console.log("revealed a wall");
+                        }
                     }
                 })
                 break;
@@ -683,19 +647,21 @@ levelTwo.addEventListener("click", function (e) {
                     const divIndexNumber = parseInt(divIndex);
                     //console.log(divIndexNumber);
 
-                    if ( parent == 17 | parent == 27 |parent == 33 |parent == 38 | parent == 48 | parent == 57 | parent == 67 | parent == 77 | parent == 88 | parent == 93 | parent == 98){
+                    if (parent == 11 | parent == 17 | parent == 20 | parent == 21 | parent == 27 | parent == 30 | parent == 33 | parent == 35 | parent == 38 | parent == 40 | parent == 45 | parent == 48 | parent == 50 | parent == 55 | parent == 57 | parent == 60 | parent == 63 | parent == 67 | parent == 70 | parent == 72 | parent == 77 | parent == 80 | parent == 81 | parent == 88 | parent == 90 | parent == 93 | parent == 95 | parent == 98) {
                         if (divIndexNumber == parentUppy) {
                             div.appendChild(gridBot);
                             console.log("attempted to shift up");
-                        } else {
+                        } 
+                    } else if (parent == 1 | parent == 7 | parent == 8 | parent == 9 | parent == 10) {
                         instructions.innerText = "You've hit a wall";
+                    } else {
+                            instructions.innerText = "You've hit a wall";
                             //select for the div below 
                             if (divIndexNumber == parentUppy) {
-                            div.classList.add("wall");
-                             console.log("revealed a wall");
+                                div.classList.add("wall");
+                                console.log("revealed a wall");
                             }
-                    }
-                    }
+                        }
                 })
                 break;
         }
@@ -703,8 +669,9 @@ levelTwo.addEventListener("click", function (e) {
         //check to see if the creature has reached the end 
         const checkForWin = function () {
             if (gridBot.parentElement.getAttribute("index") == 100) {
-                instructions.innerText = "You made it!";
-                instructions.classList.add("win");
+                instructionsHeading.innerText = "You made it!";
+                instructions.innerText="";
+                instructionsDiv.classList.add("win");
                 console.log("Win");
             }
         };

@@ -5,7 +5,7 @@ const header = document.createElement("h1");
 header.innerText = "Hidden Maze";
 app.appendChild(header);
 
-// create a space for instructions
+// create a div for instructions with a heading and paragraph
 const instructionsDiv = document.createElement("div");
 instructions = document.createElement("p");
 const instructionsHeading = document.createElement("h2");
@@ -17,7 +17,7 @@ instructionsDiv.appendChild(instructions);
 instructionsDiv.classList.add("instructionsStart");
 app.appendChild(instructionsDiv);
 
-//create Start again button
+//create Start Again button and hide it
 const startAgain = document.createElement("button");
 startAgain.innerText = "Start again";
 startAgain.classList.add("startAgain");
@@ -34,18 +34,18 @@ turns.classList.add("turns");
 turns.classList.add("hide");
 controls.appendChild(turns);
 
-// create re-start function
+// Re-start function
 startAgain.addEventListener("click", function (e) {
     startAgain.classList.add("hide");
     levelSelect.classList.remove("hide");
     gameBoard.classList.add("hide");
-    gameBoard.innerHTML="";
+    gameBoard.innerHTML = "";
     instructionsHeading.innerText = "Instructions:";
     instructions.classList.remove("hide");
     instructions.innerText = "Please select a level";
     instructionsDiv.classList.remove("win");
     //to re-set controls content 
-    controls.innerHTML=""; 
+    controls.innerHTML = "";
     turns.innerHTML = "";
     controls.appendChild(turns);
 })
@@ -79,30 +79,28 @@ by.style.width = "300px";
 const gridBot = document.createElementNS("http://www.w3.org/2000/svg", `svg`);
 const robotInfo = getComputedStyle(gridBot);
 
-const robotTransform = robotInfo.getPropertyValue("transform");
-
 // create a 5x5 gameboard on Level One button click
 demoLevel.addEventListener("click", function (e) {
-    //show controls
+    //show controls and gameboard
     gameBoard.classList.remove("hide");
     controls.classList.remove("hide");
     turns.classList.remove("hide");
+    //update instructions
     instructionsDiv.classList.remove("instructionsStart");
-    instructions.innerText = "Click the buttons to turn and move the robot";
+    instructions.innerHTML = "Click the buttons to turn and move the creature to the finish <br> Be careful to avoid the hidden walls!";
     //hide select level buttons
     levelSelect.classList.add("hide");
+    //create gameboard
     for (let i = 1; i < 26; i++) {
         const gridItem = document.createElement("div");
         gridItem.classList.add("grid-item");
-        //add the class "space" for styling
-        gridItem.classList.add("space");
         // add index attribute 
         gridItem.setAttribute("index", i);
         // add each space to the board
         gameBoard.appendChild(gridItem);
     }
-    // get all divs
-    const divs = document.querySelectorAll(".space");
+    // select all the spaces
+    const divs = document.querySelectorAll(".grid-item");
 
     // allocate start and finish squares
     divs.forEach((div) => {
@@ -113,14 +111,14 @@ demoLevel.addEventListener("click", function (e) {
         if (divIndexNumber == 25) {
             div.innerHTML = `<p class="finish">Finish</p>`;
             console.log("Show Finish");
-            div.style.background = " #58b85d";
+            div.style.background = " #539756";
         }
     });
 
 
     // create creature 
     const iconPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-    gridBot.setAttribute('fill', '#5c5c5c'); //colours it in
+    gridBot.setAttribute('fill', 'black'); //colours it in
     gridBot.setAttribute('viewBox', '0 0 640 512'); //from svg link
     gridBot.setAttribute('stroke', '#5c5c5c'); // color
     gridBot.setAttribute("transform", `rotate(0)`); // to make advancing work before button pressing
@@ -128,63 +126,58 @@ demoLevel.addEventListener("click", function (e) {
     iconPath.setAttribute('stroke-width', '6'); //thickness of lines
     gridBot.appendChild(iconPath);
     gridBot.classList.add("robot");
-    //append creature to first div
+    //add creature to first space
     gameBoard.firstChild.append(gridBot);
 
-    // create a button to rotate the robot upwards
+    // create a button to rotate the creature upwards
     const rotateUp = document.createElement("button");
     rotateUp.innerText = "Face up";
     rotateUp.style.margin = "10px 40px";
     turns.appendChild(rotateUp);
 
-    //make the button functional
+    //make the creature rotate up
     rotateUp.addEventListener("click", function (e) {
         e.preventDefault();
         gridBot.setAttribute("transform", `rotate(180)`);
-        instructions.innerText = "Click the buttons to turn and move the robot";
         //console.log(robotInfo.getPropertyValue("transform"));// matrix(-1, 0, 0, -1, 0, 0)
     })
 
-
-    // create a button to rotate the robot left
+    // create a button to rotate the creature left
     const rotateLeft = document.createElement("button");
     rotateLeft.innerText = "Face left";
     rotateLeft.style.margin = "0 5px";
     turns.appendChild(rotateLeft);
 
-    // make the button functional
+    // make the creature rotate left
     rotateLeft.addEventListener("click", function (e) {
         e.preventDefault();
         gridBot.setAttribute("transform", `rotate(90)`);
-        instructions.innerText = "Click the buttons to turn and move the robot";
         // console.log(robotInfo.getPropertyValue("transform")); // matrix(0, 1, -1, 0, 0, 0)
     })
 
-    // create a button to rotate the robot right
+    // create a button to rotate the creature right
     const rotateRight = document.createElement("button");
     rotateRight.innerText = "Face right";
     rotateRight.style.margin = "0 5px";
     turns.appendChild(rotateRight);
 
+    // make the creature rotate right
     rotateRight.addEventListener("click", function (e) {
         e.preventDefault();
         gridBot.setAttribute("transform", `rotate(-90)`);
-        instructions.innerText = "Click the buttons to turn and move the robot";
         // console.log(robotInfo.getPropertyValue("transform")); //matrix(0, -1, 1, 0, 0, 0)
     })
 
-
-    // create a button to rotate the robot downwards
+    // create a button to rotate the creature downwards
     const rotateDown = document.createElement("button");
     rotateDown.innerText = "Face down";
     rotateDown.style.margin = "10px 40px";
     turns.appendChild(rotateDown);
 
-    // make the button functional
+    // make the creature rotate downwards
     rotateDown.addEventListener("click", function (e) {
         e.preventDefault();
         gridBot.setAttribute("transform", `rotate(0)`);
-        instructions.innerText = "Click the buttons to turn and move the robot";
         //console.log(robotInfo.getPropertyValue("transform")); //matrix(1, 0, 0, 1, 0, 0)
     })
 
@@ -196,27 +189,27 @@ demoLevel.addEventListener("click", function (e) {
 
     advance.addEventListener("click", function (e) {
         e.preventDefault();
-        //console.log("clicked");
         let parent = gridBot.parentElement.getAttribute("index");
         console.log(parent); // 13
         let parentNumber = parseInt(parent);
-        console.log(parentNumber);
+        //console.log(parentNumber);
         let parentLefty = parentNumber -= 1;
-        console.log(parentLefty);
+        //console.log(parentLefty);
         let parentRighty = parentNumber += 2; // "+= 1" returned 13 (?)
-        console.log(parentRighty);
+        //console.log(parentRighty);
         let parentUppy = parentNumber -= 6;
-        console.log(parentUppy);
+        //console.log(parentUppy);
         let parentUndery = parentNumber += 10;
-        console.log(parentUndery);
-        console.log(parent);
+        //console.log(parentUndery);
 
-        instructions.innerText = "Click the buttons to turn and move the robot";
+        // update the instructions 
+        instructions.innerHTML = "Click the buttons to turn and move the creature to the finish <br> Be careful to avoid the hidden walls!";
 
+        // advance the creature in the direction it's facing
         switch (robotInfo.getPropertyValue("transform")) {
             case "matrix(1, 0, 0, 1, 0, 0)":
-                //if the creature is facing down
-                console.log("Rotation 0");
+                //facing down
+                //console.log("Rotation 0");
                 divs.forEach((div) => {
                     // isolate div index
                     const divIndex = div.getAttribute("index");
@@ -224,8 +217,7 @@ demoLevel.addEventListener("click", function (e) {
                     const divIndexNumber = parseInt(divIndex);
                     //console.log(divIndexNumber);
 
-
-                    switch (parent) {  // processing the parent divs index
+                    switch (parent) {
                         //make the creature shift down a space
                         case '1':
                         case '4':
@@ -234,13 +226,13 @@ demoLevel.addEventListener("click", function (e) {
                         case '13':
                         case '14':
                         case '19':
-                            console.log("Move");
+                            // console.log("Move down");
                             if (divIndexNumber == parentUndery) {
                                 div.appendChild(gridBot);
-                                console.log("attempted to shift down");
+                                //console.log("attempted to shift down");
                             }
                             break;
-                        //make the div below turn black and stop at the bottom
+                        // don't move, reveal a wall and stop at the bottom
                         case '2':
                         case '3':
                         case '5':
@@ -259,12 +251,12 @@ demoLevel.addEventListener("click", function (e) {
                         case '23':
                         case '24':
                         case '25':
-                            console.log("do not advance"); //registered
-                            instructions.innerText = "You've hit a wall";
+                            //console.log("do not advance"); 
+                            instructions.innerHTML = "Oops! You've hit a wall <br> Click the buttons to turn and move the creature to the finish <br> Be careful to avoid the hidden walls!";
                             //select for the div below 
                             if (divIndexNumber == parentUndery) {
                                 div.classList.add("wall");
-                                console.log("revealed a wall");
+                                //console.log("revealed a wall");
                             }
                             break;
                     }
@@ -272,8 +264,7 @@ demoLevel.addEventListener("click", function (e) {
                 break;
             case "matrix(0, 1, -1, 0, 0, 0)":
                 //facing left
-                console.log("Rotation 90");
-
+                //console.log("Rotation 90");
                 divs.forEach((div) => {
                     // isolate div index
                     const divIndex = div.getAttribute("index");
@@ -281,7 +272,7 @@ demoLevel.addEventListener("click", function (e) {
                     const divIndexNumber = parseInt(divIndex);
                     //console.log(divIndexNumber);
 
-                    switch (parent) {  // processing the parent divs index
+                    switch (parent) {
                         //make it move left
                         case '7':
                         case '13':
@@ -289,16 +280,16 @@ demoLevel.addEventListener("click", function (e) {
                         case '15':
                         case '19':
                         case '25':
-                            console.log("Move");
+                            //console.log("Move left");
                             if (divIndexNumber == parentLefty) {
                                 div.appendChild(gridBot);
-                                console.log("attempted to shift left");
+                                //console.log("attempted to shift left");
                             }
                             break;
                         //make it stop at the left border 
                         case '1':
                         case '6':
-                            instructions.innerText = "You've hit a wall";
+                            instructions.innerHTML = "Oops! You've hit a wall <br> Click the buttons to turn and move the creature to the finish <br> Be careful to avoid the hidden walls!";
                             break;
                         // make it stop and reveal walls
                         case '2':
@@ -319,7 +310,7 @@ demoLevel.addEventListener("click", function (e) {
                         case '23':
                         case '24':
                             console.log("do not advance"); //registered
-                            instructions.innerText = "You've hit a wall";
+                            instructions.innerHTML = "Oops! You've hit a wall <br> Click the buttons to turn and move the creature to the finish <br> Be careful to avoid the hidden walls!";
                             if (divIndexNumber == parentLefty) {
                                 div.classList.add("wall");
                                 console.log("revealed a wall");
@@ -354,7 +345,7 @@ demoLevel.addEventListener("click", function (e) {
                             break;
                         //make it stop at the right border 
                         case '15':
-                            instructions.innerText = "You've hit a wall";
+                            instructions.innerHTML = "Oops! You've hit a wall <br> Click the buttons to turn and move the creature to the finish <br> Be careful to avoid the hidden walls!";
                             break;
                         //make it stop and reveal walls to right
                         case '1':
@@ -381,7 +372,7 @@ demoLevel.addEventListener("click", function (e) {
                                 div.classList.add("wall");
                                 console.log("revealed a wall to the right");
                             }
-                            instructions.innerText = "You've hit a wall";
+                            instructions.innerHTML = instructions.innerHTML = "Oops! You've hit a wall <br><br> Click the buttons to turn and move the creature to the finish <br> Be careful to avoid the hidden walls!";
                             break;
                     }
                 })
@@ -432,7 +423,7 @@ demoLevel.addEventListener("click", function (e) {
                         case '23':
                         case '25':
                             console.log("do not advance"); //registered
-                            instructions.innerText = "You've hit a wall";
+                            instructions.innerHTML = "Oops! You've hit a wall <br> Click the buttons to turn and move the robot";
                             if (divIndexNumber == parentUppy) {
                                 div.classList.add("wall");
                                 console.log("revealed a wall");
@@ -462,7 +453,7 @@ demoLevel.addEventListener("click", function (e) {
                     // select for the 25th space
                     if (divIndexNumber == 25) {
                         const finishText = document.querySelector(".finish");
-                        finishText.innerText ="";
+                        finishText.innerText = "";
                         console.log("Show Finish");
                     }
                 });
@@ -486,7 +477,7 @@ levelTwo.addEventListener("click", function (e) {
         gridItem.classList.add("grid-item2"); // different class for different size spaces
         // add index attribute 
         gridItem.setAttribute("index", i);
-       // gridItem.innerText = i;
+        // gridItem.innerText = i;
         // add each space to the board
         gameBoard.appendChild(gridItem);
     }
@@ -504,14 +495,14 @@ levelTwo.addEventListener("click", function (e) {
         if (divIndexNumber == 100) {
             div.innerHTML = `<p class="finish2">Finish</p>`; //class changed for size adaptations
             console.log("Show Finish");
-            div.style.background = " #58b85d";
+            div.style.background = " #539756";
         }
     });
 
 
     // create creature 
     const iconPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-    gridBot.setAttribute('fill', '#5c5c5c'); //colours it in
+    gridBot.setAttribute('fill', 'black'); //colours it in
     gridBot.setAttribute('viewBox', '0 0 640 512'); //from svg link
     gridBot.setAttribute('stroke', '#5c5c5c'); // color
     gridBot.setAttribute("transform", `rotate(0)`); // to make advancing work before button pressing
@@ -723,7 +714,7 @@ levelTwo.addEventListener("click", function (e) {
                 controls.classList.add("hide");
                 turns.classList.add("hide");
                 startAgain.classList.remove("hide");
-               gridBot.setAttribute("transform", `rotate(0)`);
+                gridBot.setAttribute("transform", `rotate(0)`);
 
                 //change finish div appearance
                 divs.forEach((div) => {
@@ -733,7 +724,7 @@ levelTwo.addEventListener("click", function (e) {
                     // select for the 25th space
                     if (divIndexNumber == 25) {
                         const finishText = document.querySelector(".finish");
-                        finishText.innerText ="";
+                        finishText.innerText = "";
                         console.log("Show Finish");
                     }
                 });

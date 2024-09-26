@@ -27,7 +27,7 @@ h1 {
     font-size: 4em;
     font-style: normal;
     color: #FFFFFF;
-    background: #012002;
+    background: #0C211D; /*#0D1723;*/
     width: 100%;
     text-align: center;
     text-transform: uppercase;
@@ -42,9 +42,13 @@ h1 {
     padding: 4em 2em;
     font-size: 1em;
     font-style: normal;
-    background:#80b883;
+   /* background:#4A7750;
+    background: #599559;*/
+    background: #D6FDC4;
+    color: #0C211D; 
     margin: 10px 0 30px 0;
-    border:black 2px dotted;
+    border: #0C211D 2px solid;
+    border-radius: 0.25em;
     box-sizing: border-box;
 }
 
@@ -87,8 +91,8 @@ h1 {
     text-transform: uppercase;
     padding: 0.5em;
     color: #FFFFFF;
-    border: #012002;
-    background: #012002;
+    border:#0C211D;
+    background: #609167;
 }
 
 .main {
@@ -216,7 +220,7 @@ button:hover{
     font-style: normal;
     color: #FFFFFF;
     border-radius: 0.25em;
-    background: #012002;
+    background: #0C211D;
 }
 
 .win{

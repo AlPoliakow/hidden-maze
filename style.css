@@ -136,7 +136,8 @@ h1 {
 }
 
 .wall {
-    background:  #012002;
+    background-image: url("img/pexels-suzyhazelwood-2382325.jpg");
+    background-size: 200px;
 }
 
 .finish{

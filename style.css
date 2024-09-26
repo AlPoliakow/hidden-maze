@@ -1,16 +1,24 @@
 body {
     display: flex;
     justify-content: center;
-    background: #b4dbb3;
+    background-image: url("img/pexels-suzyhazelwood-2382325.jpg");
+    background-color: #b4dbb3;
+    background-size: 200px;
+    background-repeat: repeat;
 }
 
 .app {
     display: flex;
     justify-content: center;
     flex-flow: row wrap;
-    max-width: 550px;
+    max-width: 800px;
     font-family: "Noto Serif", serif;
     font-weight: 700;
+}
+
+.appStart {
+    max-width: 550px;
+    text-align: center;
 }
 
 h1 {
@@ -18,46 +26,55 @@ h1 {
     font-weight: 900;
     font-size: 4em;
     font-style: normal;
-    color: #044707;
+    color: #FFFFFF;
+    background: #012002;
     width: 100%;
     text-align: center;
     text-transform: uppercase;
+    border-radius: 0.25em;
     margin: 30px 0 10px 0;
 }
 
 
 .instructions {
-    width:400px;
-    padding: 1em;
+    /*width:400px;*/
+    width: 30%;
+    padding: 4em 2em;
     font-size: 1em;
     font-style: normal;
-    background:#FFFFFF;
+    background:#80b883;
     margin: 10px 0 30px 0;
     border:black 2px dotted;
+    box-sizing: border-box;
 }
 
 .instructionsStart{
-    margin-top: 50px;
+    /*margin-top: 50px;*/
+    width:300px;
+    padding: 1em;
 }
 
 .instructions h2{
     margin:0;
+    text-align: center;
     text-transform: uppercase;
     font-weight: 900;
     font-size: 1em;
 }
 
 .startAgain {
-    margin: 0 0 30px 0;
+    margin: 0 100px 30px 100px;
     padding: 0.5em;
     font-size:2em;
     font-weight: 600;
-    background: #539756;
+    background: #539756; 
+    border: white 2px solid;
     text-transform: uppercase;
 }
 
 .levels {
-    margin: 100px 0 300px 0;
+    /*margin: 100px 0 300px 0;*/
+    margin: 5% 0 10% 0;
     width: 500px;
     display: flex;
     justify-content: center;
@@ -69,7 +86,17 @@ h1 {
     font-weight: 600;
     text-transform: uppercase;
     padding: 0.5em;
-    background: #539756;
+    color: #FFFFFF;
+    border: #012002;
+    background: #012002;
+}
+
+.main {
+    width: 70%;
+    margin: 10px 0 10px 0; /* to mimic instructions */
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
 }
 
 .gameboard {
@@ -78,7 +105,7 @@ h1 {
     background-color: #044707;
     display: flex;
     flex-flow: row wrap;
-    border: 3px solid #044707;
+    border: 3px solid #012002;
     margin-bottom: 20px;
 }
 
@@ -105,7 +132,7 @@ h1 {
 }
 
 .wall {
-    background: #044707;
+    background:  #012002;
 }
 
 .finish{
@@ -147,7 +174,7 @@ h1 {
     display: flex;
     justify-content: center;
     margin: 0 0 40px 0;
-    background: #FFFFFF;
+    background: #b0b0b0;
     border: 1px solid rgb(0, 0, 0);
     border-radius: 0.5em;
     box-shadow: 0 4px 12px rgba(0, 0, 0, .1), 0 12px 20px rgba(17, 24, 39, .2);
@@ -171,7 +198,7 @@ button {
 }
 
 button:hover{
-    outline: 2px solid #e15a1d;
+    outline: 2px solid #FFFFFF;
 }
 
 .turns button{
@@ -180,10 +207,16 @@ button:hover{
 }
 
 .by {
+    margin-top: 10%;
     text-align: center;
-    font-weight: 400;
+    font-weight: 600;
     font-size: 1em;
+    padding: 0.5em;
+    text-transform: uppercase;
     font-style: normal;
+    color: #FFFFFF;
+    border-radius: 0.25em;
+    background: #012002;
 }
 
 .win{

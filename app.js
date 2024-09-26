@@ -1,5 +1,8 @@
 const app = document.querySelector(".app");
 
+// create starting layout
+app.classList.add("appStart");
+
 // create the a heading
 const header = document.createElement("h1");
 header.innerText = "Hidden Maze";
@@ -24,11 +27,17 @@ startAgain.classList.add("startAgain");
 startAgain.classList.add("hide");
 app.appendChild(startAgain);
 
+// create div for main area
+const main = document.createElement("div");
+main.classList.add("main");
+main.classList.add("hide");
+app.appendChild(main);
+
 // create control buttons section
 const controls = document.createElement("div");
 controls.classList.add("controls");
 controls.classList.add("hide");
-app.appendChild(controls);
+main.appendChild(controls);
 const turns = document.createElement("div");
 turns.classList.add("turns");
 turns.classList.add("hide");
@@ -36,12 +45,15 @@ controls.appendChild(turns);
 
 // Re-start function
 startAgain.addEventListener("click", function (e) {
+    app.classList.add("appStart");
     startAgain.classList.add("hide");
     levelSelect.classList.remove("hide");
+    main.classList.add("hide");
     gameBoard.classList.add("hide");
     gameBoard.innerHTML = "";
     instructionsHeading.innerText = "Instructions:";
     instructions.classList.remove("hide");
+    instructionsDiv.classList.add("instructionsStart");
     instructions.innerText = "Please select a level";
     instructionsDiv.classList.remove("win");
     //to re-set controls content 
@@ -63,31 +75,34 @@ const levelTwo = document.createElement("button");
 levelTwo.innerText = "Level 2";
 levelSelect.appendChild(levelTwo);
 
+
 // create div for gameboard
 const gameBoard = document.createElement("div");
 gameBoard.classList.add("gameboard");
 gameBoard.classList.add("hide");
-app.appendChild(gameBoard);
+main.appendChild(gameBoard);
 
 //create written by section
 const by = document.createElement("p");
 by.innerText = "By Al Poliakow 2024";
 by.classList.add("by");
 app.appendChild(by);
-by.style.width = "300px";
+by.style.width = "100%";
 
 const gridBot = document.createElementNS("http://www.w3.org/2000/svg", `svg`);
 const robotInfo = getComputedStyle(gridBot);
 
 // create a 5x5 gameboard on Level One button click
 demoLevel.addEventListener("click", function (e) {
+    app.classList.remove("appStart");
     //show controls and gameboard
+    main.classList.remove("hide");
     gameBoard.classList.remove("hide");
     controls.classList.remove("hide");
     turns.classList.remove("hide");
     //update instructions
     instructionsDiv.classList.remove("instructionsStart");
-    instructions.innerHTML = "Click the buttons to turn and move the creature to the finish <br> Be careful to avoid the hidden walls!";
+    instructions.innerHTML = "Click the buttons to turn and move the creature to the finish <br><br> Be careful to avoid the hidden walls!";
     //hide select level buttons
     levelSelect.classList.add("hide");
     //create gameboard
@@ -111,7 +126,7 @@ demoLevel.addEventListener("click", function (e) {
         if (divIndexNumber == 25) {
             div.innerHTML = `<p class="finish">Finish</p>`;
             console.log("Show Finish");
-            div.style.background = " #539756";
+            div.style.background = " #80b883";
         }
     });
 
@@ -203,7 +218,7 @@ demoLevel.addEventListener("click", function (e) {
         //console.log(parentUndery);
 
         // update the instructions 
-        instructions.innerHTML = "Click the buttons to turn and move the creature to the finish <br> Be careful to avoid the hidden walls!";
+        instructions.innerHTML = "Click the buttons to turn and move the creature to the finish <br><br> Be careful to avoid the hidden walls!";
 
         // advance the creature in the direction it's facing
         switch (robotInfo.getPropertyValue("transform")) {
@@ -252,7 +267,7 @@ demoLevel.addEventListener("click", function (e) {
                         case '24':
                         case '25':
                             //console.log("do not advance"); 
-                            instructions.innerHTML = "Oops! You've hit a wall <br> Click the buttons to turn and move the creature to the finish <br> Be careful to avoid the hidden walls!";
+                            instructions.innerHTML = "Oops! You've hit a wall <br><br> Click the buttons to turn and move the creature to the finish <br><br> Be careful to avoid the hidden walls!";
                             //select for the div below 
                             if (divIndexNumber == parentUndery) {
                                 div.classList.add("wall");
@@ -289,7 +304,7 @@ demoLevel.addEventListener("click", function (e) {
                         //make it stop at the left border 
                         case '1':
                         case '6':
-                            instructions.innerHTML = "Oops! You've hit a wall <br> Click the buttons to turn and move the creature to the finish <br> Be careful to avoid the hidden walls!";
+                            instructions.innerHTML = "Oops! You've hit a wall <br><br> Click the buttons to turn and move the creature to the finish <br><br> Be careful to avoid the hidden walls!";
                             break;
                         // make it stop and reveal walls
                         case '2':
@@ -310,7 +325,7 @@ demoLevel.addEventListener("click", function (e) {
                         case '23':
                         case '24':
                             console.log("do not advance"); //registered
-                            instructions.innerHTML = "Oops! You've hit a wall <br> Click the buttons to turn and move the creature to the finish <br> Be careful to avoid the hidden walls!";
+                            instructions.innerHTML = "Oops! You've hit a wall <br><br> Click the buttons to turn and move the creature to the finish <br><br> Be careful to avoid the hidden walls!";
                             if (divIndexNumber == parentLefty) {
                                 div.classList.add("wall");
                                 console.log("revealed a wall");
@@ -345,7 +360,7 @@ demoLevel.addEventListener("click", function (e) {
                             break;
                         //make it stop at the right border 
                         case '15':
-                            instructions.innerHTML = "Oops! You've hit a wall <br> Click the buttons to turn and move the creature to the finish <br> Be careful to avoid the hidden walls!";
+                            instructions.innerHTML = "Oops! You've hit a wall <br><br> Click the buttons to turn and move the creature to the finish <br><br> Be careful to avoid the hidden walls!";
                             break;
                         //make it stop and reveal walls to right
                         case '1':
@@ -372,7 +387,7 @@ demoLevel.addEventListener("click", function (e) {
                                 div.classList.add("wall");
                                 console.log("revealed a wall to the right");
                             }
-                            instructions.innerHTML = instructions.innerHTML = "Oops! You've hit a wall <br><br> Click the buttons to turn and move the creature to the finish <br> Be careful to avoid the hidden walls!";
+                            instructions.innerHTML = instructions.innerHTML = "Oops! You've hit a wall <br><br> Click the buttons to turn and move the creature to the finish <br><br> Be careful to avoid the hidden walls!";
                             break;
                     }
                 })
@@ -423,7 +438,7 @@ demoLevel.addEventListener("click", function (e) {
                         case '23':
                         case '25':
                             console.log("do not advance"); //registered
-                            instructions.innerHTML = "Oops! You've hit a wall <br> Click the buttons to turn and move the robot";
+                            instructions.innerHTML = "Oops! You've hit a wall <br><br> Click the buttons to turn and move the robot";
                             if (divIndexNumber == parentUppy) {
                                 div.classList.add("wall");
                                 console.log("revealed a wall");
@@ -443,6 +458,7 @@ demoLevel.addEventListener("click", function (e) {
                 controls.classList.add("hide");
                 turns.classList.add("hide");
                 startAgain.classList.remove("hide");
+                main.style.width = "100%";
                 gridBot.setAttribute("transform", `rotate(0)`);
 
                 //change finish div appearance
@@ -453,7 +469,7 @@ demoLevel.addEventListener("click", function (e) {
                     // select for the 25th space
                     if (divIndexNumber == 25) {
                         const finishText = document.querySelector(".finish");
-                        finishText.innerText = "";
+                        finishText.innerText = ""; 
                         console.log("Show Finish");
                     }
                 });
@@ -464,10 +480,13 @@ demoLevel.addEventListener("click", function (e) {
 })
 
 levelTwo.addEventListener("click", function (e) {
-    //show controls
+    app.classList.remove("appStart");
+    //show controls and gameboard
+    main.classList.remove("hide");
     gameBoard.classList.remove("hide");
     controls.classList.remove("hide");
     turns.classList.remove("hide");
+   //change instructions width
     instructionsDiv.classList.remove("instructionsStart");
     //hide select level buttons
     levelSelect.classList.add("hide");
@@ -495,7 +514,7 @@ levelTwo.addEventListener("click", function (e) {
         if (divIndexNumber == 100) {
             div.innerHTML = `<p class="finish2">Finish</p>`; //class changed for size adaptations
             console.log("Show Finish");
-            div.style.background = " #539756";
+            div.style.background = " #80b883";
         }
     });
 
@@ -721,10 +740,11 @@ levelTwo.addEventListener("click", function (e) {
                     // isolate div index
                     const divIndex = div.getAttribute("index");
                     const divIndexNumber = parseInt(divIndex);
-                    // select for the 25th space
-                    if (divIndexNumber == 25) {
+                    // select for the 100th space
+                    if (divIndexNumber == 100) {
                         const finishText = document.querySelector(".finish");
                         finishText.innerText = "";
+                        app.classList.add("appStart");
                         console.log("Show Finish");
                     }
                 });

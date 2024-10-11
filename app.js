@@ -12,7 +12,7 @@ app.appendChild(header);
 const instructionsDiv = document.createElement("div");
 instructions = document.createElement("p");
 const instructionsHeading = document.createElement("h2");
-instructionsHeading.innerText = "Instructions:";
+//instructionsHeading.innerText = "Instructions:";
 instructionsDiv.appendChild(instructionsHeading);
 instructions.innerText = "Please select a level";
 instructionsDiv.classList.add("instructions");
@@ -51,7 +51,7 @@ startAgain.addEventListener("click", function (e) {
     main.classList.add("hide");
     gameBoard.classList.add("hide");
     gameBoard.innerHTML = "";
-    instructionsHeading.innerText = "Instructions:";
+    instructionsHeading.innerText = "";
     instructions.classList.remove("hide");
     instructionsDiv.classList.add("instructionsStart");
     instructions.innerText = "Please select a level";
@@ -126,8 +126,9 @@ demoLevel.addEventListener("click", function (e) {
         // select for the 25th space
         if (divIndexNumber == 25) {
             div.innerHTML = `<p class="finish">Finish</p>`;
+            div.classList.add("finishSquare");
             console.log("Show Finish");
-            div.style.background = " #80b883";
+            //div.style.background = " #80b883";
         }
     });
 
@@ -483,6 +484,7 @@ demoLevel.addEventListener("click", function (e) {
                     if (divIndexNumber == 25) {
                         const finishText = document.querySelector(".finish");
                         finishText.innerText = "";
+                        div.classList.remove("finishSquare");
                         console.log("Show Finish");
                     }
                 });

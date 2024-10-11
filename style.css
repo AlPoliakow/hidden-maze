@@ -44,10 +44,10 @@ h1 {
     font-style: normal;
    /* background:#4A7750;
     background: #599559;*/
-    background: #D6FDC4;
+    background: #7CA882; /* monochromatic selection from levels button */
     color: #0C211D; 
     margin: 10px 0 30px 0;
-    border: #0C211D 2px solid;
+    border: #FFFFFF 2px solid;
     border-radius: 0.25em;
     box-sizing: border-box;
 }
@@ -156,6 +156,10 @@ h1 {
     color: #FFFFFF;
     font-weight: 600;
     font-size:0.9em;
+}
+
+.finishSquare{
+    background:#80b883;
 }
 
 .creature {

@@ -158,7 +158,7 @@ h1 {
     font-size:0.9em;
 }
 
-.robot {
+.creature {
     height: 80px;
     width:80px;
     margin: 10px;
@@ -166,7 +166,7 @@ h1 {
     position:absolute;
 }
 
-.robot2{
+.creature2{
     height:40px;
     width:40px;
     margin: 5px;

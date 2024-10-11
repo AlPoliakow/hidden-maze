@@ -91,7 +91,7 @@ by.style.width = "100%";
 
 const gridBot = document.createElementNS("http://www.w3.org/2000/svg", `svg`);
 //const gridBot = document.createElement("div");
-const robotInfo = getComputedStyle(gridBot);
+const creatureInfo = getComputedStyle(gridBot);
 
 // create a 5x5 gameboard on Level One button click
 demoLevel.addEventListener("click", function (e) {
@@ -142,7 +142,7 @@ demoLevel.addEventListener("click", function (e) {
     iconPath.setAttribute("d", "M256 0a256 256 0 1 0 0 512A256 256 0 1 0 256 0zM135 241c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l87 87 87-87c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9L273 345c-9.4 9.4-24.6 9.4-33.9 0L135 241z");
     iconPath.setAttribute('stroke-width', '6'); //thickness of lines
     gridBot.appendChild(iconPath);
-    gridBot.classList.add("robot");
+    gridBot.classList.add("creature");
     //append creature to first div
     gameBoard.firstChild.append(gridBot);
 
@@ -167,7 +167,7 @@ demoLevel.addEventListener("click", function (e) {
     rotateUp.addEventListener("click", function (e) {
         e.preventDefault();
         gridBot.setAttribute("transform", `rotate(180)`);
-        //console.log(robotInfo.getPropertyValue("transform"));// matrix(-1, 0, 0, -1, 0, 0)
+        //console.log(creatureInfo.getPropertyValue("transform"));// matrix(-1, 0, 0, -1, 0, 0)
     })
 
     // create a button to rotate the creature left
@@ -180,7 +180,7 @@ demoLevel.addEventListener("click", function (e) {
     rotateLeft.addEventListener("click", function (e) {
         e.preventDefault();
         gridBot.setAttribute("transform", `rotate(90)`);
-        // console.log(robotInfo.getPropertyValue("transform")); // matrix(0, 1, -1, 0, 0, 0)
+        // console.log(creatureInfo.getPropertyValue("transform")); // matrix(0, 1, -1, 0, 0, 0)
     })
 
     // create a button to rotate the creature right
@@ -193,7 +193,7 @@ demoLevel.addEventListener("click", function (e) {
     rotateRight.addEventListener("click", function (e) {
         e.preventDefault();
         gridBot.setAttribute("transform", `rotate(-90)`);
-        // console.log(robotInfo.getPropertyValue("transform")); //matrix(0, -1, 1, 0, 0, 0)
+        // console.log(creatureInfo.getPropertyValue("transform")); //matrix(0, -1, 1, 0, 0, 0)
     })
 
     // create a button to rotate the creature downwards
@@ -206,7 +206,7 @@ demoLevel.addEventListener("click", function (e) {
     rotateDown.addEventListener("click", function (e) {
         e.preventDefault();
         gridBot.setAttribute("transform", `rotate(0)`);
-        //console.log(robotInfo.getPropertyValue("transform")); //matrix(1, 0, 0, 1, 0, 0)
+        //console.log(creatureInfo.getPropertyValue("transform")); //matrix(1, 0, 0, 1, 0, 0)
     })
 
     const advance = document.createElement("button");
@@ -234,7 +234,7 @@ demoLevel.addEventListener("click", function (e) {
         instructions.innerHTML = "Click the buttons to turn and move the creature to the finish <br><br> Be careful to avoid the hidden walls!";
 
         // advance the creature in the direction it's facing
-        switch (robotInfo.getPropertyValue("transform")) {
+        switch (creatureInfo.getPropertyValue("transform")) {
             case "matrix(1, 0, 0, 1, 0, 0)":
                 //facing down
                 //console.log("Rotation 0");
@@ -451,7 +451,7 @@ demoLevel.addEventListener("click", function (e) {
                         case '23':
                         case '25':
                             console.log("do not advance"); //registered
-                            instructions.innerHTML = "Oops! You've hit a wall <br><br> Click the buttons to turn and move the robot";
+                            instructions.innerHTML = "Oops! You've hit a wall <br><br> Click the buttons to turn and move the creature";
                             if (divIndexNumber == parentUppy) {
                                 div.classList.add("wall");
                                 console.log("revealed a wall");
@@ -542,14 +542,14 @@ levelTwo.addEventListener("click", function (e) {
     iconPath.setAttribute("d", "M256 0a256 256 0 1 0 0 512A256 256 0 1 0 256 0zM135 241c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l87 87 87-87c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9L273 345c-9.4 9.4-24.6 9.4-33.9 0L135 241z");
     iconPath.setAttribute('stroke-width', '6'); //thickness of lines
     gridBot.appendChild(iconPath);
-    gridBot.classList.add("robot2"); // smaller size for smaller square
+    gridBot.classList.add("creature2"); // smaller size for smaller square
     //append creature to first div
     gameBoard.firstChild.append(gridBot);
 
 
     //append creature to first div
     gameBoard.firstChild.append(gridBot);
-    // create a button to rotate the robot upwards
+    // create a button to rotate the creature upwards
     const rotateUp = document.createElement("button");
     rotateUp.innerText = "Face up";
     rotateUp.style.margin = "10px 40px";
@@ -559,12 +559,12 @@ levelTwo.addEventListener("click", function (e) {
     rotateUp.addEventListener("click", function (e) {
         e.preventDefault();
         gridBot.setAttribute("transform", `rotate(180)`);
-        instructions.innerText = "Click the buttons to turn and move the robot";
-        //console.log(robotInfo.getPropertyValue("transform"));// matrix(-1, 0, 0, -1, 0, 0)
+        instructions.innerText = "Click the buttons to turn and move the creature";
+        //console.log(creatureInfo.getPropertyValue("transform"));// matrix(-1, 0, 0, -1, 0, 0)
     })
 
 
-    // create a button to rotate the robot left
+    // create a button to rotate the creature left
     const rotateLeft = document.createElement("button");
     rotateLeft.innerText = "Face left";
     rotateLeft.style.margin = "0 5px";
@@ -574,11 +574,11 @@ levelTwo.addEventListener("click", function (e) {
     rotateLeft.addEventListener("click", function (e) {
         e.preventDefault();
         gridBot.setAttribute("transform", `rotate(90)`);
-        instructions.innerText = "Click the buttons to turn and move the robot";
-        // console.log(robotInfo.getPropertyValue("transform")); // matrix(0, 1, -1, 0, 0, 0)
+        instructions.innerText = "Click the buttons to turn and move the creature";
+        // console.log(creatureInfo.getPropertyValue("transform")); // matrix(0, 1, -1, 0, 0, 0)
     })
 
-    // create a button to rotate the robot right
+    // create a button to rotate the creature right
     const rotateRight = document.createElement("button");
     rotateRight.innerText = "Face right";
     rotateRight.style.margin = "0 5px";
@@ -587,12 +587,12 @@ levelTwo.addEventListener("click", function (e) {
     rotateRight.addEventListener("click", function (e) {
         e.preventDefault();
         gridBot.setAttribute("transform", `rotate(-90)`);
-        instructions.innerText = "Click the buttons to turn and move the robot";
-        // console.log(robotInfo.getPropertyValue("transform")); //matrix(0, -1, 1, 0, 0, 0)
+        instructions.innerText = "Click the buttons to turn and move the creature";
+        // console.log(creatureInfo.getPropertyValue("transform")); //matrix(0, -1, 1, 0, 0, 0)
     })
 
 
-    // create a button to rotate the robot downwards
+    // create a button to rotate the creature downwards
     const rotateDown = document.createElement("button");
     rotateDown.innerText = "Face down";
     rotateDown.style.margin = "10px 40px";
@@ -602,8 +602,8 @@ levelTwo.addEventListener("click", function (e) {
     rotateDown.addEventListener("click", function (e) {
         e.preventDefault();
         gridBot.setAttribute("transform", `rotate(0)`);
-        instructions.innerText = "Click the buttons to turn and move the robot";
-        //console.log(robotInfo.getPropertyValue("transform")); //matrix(1, 0, 0, 1, 0, 0)
+        instructions.innerText = "Click the buttons to turn and move the creature";
+        //console.log(creatureInfo.getPropertyValue("transform")); //matrix(1, 0, 0, 1, 0, 0)
     })
 
     const advance = document.createElement("button");
@@ -629,9 +629,9 @@ levelTwo.addEventListener("click", function (e) {
         console.log(parentUndery);
         console.log(parent);
 
-        instructions.innerText = "Click the buttons to turn and move the robot";
+        instructions.innerText = "Click the buttons to turn and move the creature";
 
-        switch (robotInfo.getPropertyValue("transform")) {
+        switch (creatureInfo.getPropertyValue("transform")) {
             case "matrix(1, 0, 0, 1, 0, 0)":
                 //if the creature is facing down
                 console.log("Rotation 0");

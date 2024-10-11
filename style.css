@@ -21,6 +21,14 @@ body {
     text-align: center;
 }
 
+.main {
+    width: 70%;
+    margin: 10px 0 10px 0; /* to mimic instructions */
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+}
+
 h1 {
     font-family: "Cinzel", serif;
     font-weight: 900;
@@ -95,13 +103,7 @@ h1 {
     background: #609167;
 }
 
-.main {
-    width: 70%;
-    margin: 10px 0 10px 0; /* to mimic instructions */
-    display: flex;
-    justify-content: center;
-    flex-flow: row wrap;
-}
+
 
 .gameboard {
     height: 500px;
@@ -215,6 +217,20 @@ button:hover{
     width: 120px;
 }
 
+.win {
+    z-index: 2;
+    background: #607291;
+    color: #FFFFFF;
+    position: relative;
+    top: -60%;
+    transform: rotate(-30deg);
+    font-size: 2em;
+    padding:   15px;
+    width: 520px;
+    text-align: center;
+    border-radius: 0.5em;
+}
+
 .by {
     margin-top: 10%;
     text-align: center;
@@ -228,13 +244,6 @@ button:hover{
     background: #0C211D;
 }
 
-.win{
-    border: 5px dotted black;
-    font-size: 2em;
-    padding:   15px;
-    width: 500px;
-    text-align: center;
-}
 
 /*needs to be after display:flex */
 .hide{

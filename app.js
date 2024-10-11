@@ -60,6 +60,8 @@ startAgain.addEventListener("click", function (e) {
     controls.innerHTML = "";
     turns.innerHTML = "";
     controls.appendChild(turns);
+    //re-set win
+    win.classList.add("hide");
 })
 
 // create section for buttons for level selection
@@ -81,6 +83,15 @@ const gameBoard = document.createElement("div");
 gameBoard.classList.add("gameboard");
 gameBoard.classList.add("hide");
 main.appendChild(gameBoard);
+  
+
+// create win message
+const win = document.createElement("div");
+win.classList.add("win");
+win.innerText="You made it!!!"
+win.classList.add("hide");
+
+
 
 //create written by section
 const by = document.createElement("p");
@@ -131,6 +142,7 @@ demoLevel.addEventListener("click", function (e) {
             //div.style.background = " #80b883";
         }
     });
+    gameBoard.appendChild(win);
 
 
     // create creature 
@@ -466,15 +478,15 @@ demoLevel.addEventListener("click", function (e) {
         //check to see if the creature has reached the end 
         const checkForWin = function () {
             if (gridBot.parentElement.getAttribute("index") == 25) {
-                instructionsHeading.innerText = "You made it!";
-                instructions.classList.add("hide");
-                instructionsDiv.classList.add("win");
+                //instructionsHeading.innerText = "You made it!";
+                instructionsDiv.classList.add("hide");
+                //instructionsDiv.classList.add("win");
                 controls.classList.add("hide");
                 turns.classList.add("hide");
                 startAgain.classList.remove("hide");
                 main.style.width = "100%";
                 gridBot.setAttribute("transform", `rotate(0)`);
-
+                win.classList.remove("hide");
                 //change finish div appearance
                 divs.forEach((div) => {
                     // isolate div index
@@ -515,6 +527,8 @@ levelTwo.addEventListener("click", function (e) {
         // add each space to the board
         gameBoard.appendChild(gridItem);
     }
+
+    gameBoard.appendChild(win);
 
     // get all divs
     const divs = document.querySelectorAll(".grid-item2");
@@ -746,13 +760,14 @@ levelTwo.addEventListener("click", function (e) {
         //check to see if the creature has reached the end 
         const checkForWin = function () {
             if (gridBot.parentElement.getAttribute("index") == 100) {
-                instructionsHeading.innerText = "You made it!";
-                instructions.classList.add("hide");
-                instructionsDiv.classList.add("win");
+                //instructionsHeading.innerText = "You made it!";
+                instructionsDiv.classList.add("hide");
+                //instructionsDiv.classList.add("win");
                 controls.classList.add("hide");
                 turns.classList.add("hide");
                 startAgain.classList.remove("hide");
                 gridBot.setAttribute("transform", `rotate(0)`);
+                win.classList.remove("hide");
 
                 //change finish div appearance
                 divs.forEach((div) => {

@@ -68,10 +68,10 @@ h1 {
 
 .startAgain {
     margin: 0 100px 30px 100px;
-    padding: 0.5em;
+    padding: 1em;
     font-size:2em;
     font-weight: 600;
-    background: #539756; 
+    background: #91608A; /*Complimentary color */
     border: white 2px solid;
     text-transform: uppercase;
 }

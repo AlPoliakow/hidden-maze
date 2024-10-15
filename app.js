@@ -1,8 +1,5 @@
 const app = document.querySelector(".app");
 
-// create starting layout
-app.classList.add("appStart");
-
 // create the heading
 const header = document.createElement("header");
 const heading = document.createElement("h1");
@@ -84,7 +81,6 @@ main.appendChild(instructionsDiv);
 
 // Re-start function
 startAgain.addEventListener("click", function (e) {
-    app.classList.add("appStart");
     startAgain.classList.add("hide");
     levelSelect.classList.remove("hide");
     main.classList.add("hide");
@@ -125,7 +121,6 @@ const creatureInfo = getComputedStyle(gridBot);
 
 // create a 5x5 gameboard on Level One button click
 demoLevel.addEventListener("click", function (e) {
-    app.classList.remove("appStart");
     //show controls and gameboard
     game.classList.remove("hide");
     gameBoard.classList.remove("hide");
@@ -526,7 +521,6 @@ demoLevel.addEventListener("click", function (e) {
 })
 
 levelTwo.addEventListener("click", function (e) {
-    app.classList.remove("appStart");
     //show controls and gameboard
     game.classList.remove("hide");
     gameBoard.classList.remove("hide");
@@ -797,7 +791,6 @@ levelTwo.addEventListener("click", function (e) {
                     if (divIndexNumber == 100) {
                         const finishText = document.querySelector(".finish");
                         finishText.innerText = "";
-                        app.classList.add("appStart");
                         console.log("Show Finish");
                     }
                 });

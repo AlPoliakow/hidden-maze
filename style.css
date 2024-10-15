@@ -11,10 +11,7 @@ body {
     font-family: "Noto Serif", serif;
     font-weight: 700; 
     width: 100%;
-}
-
-.appStart {
-    height: 100vh;
+    height:100vh;
 }
 
 /*---BASE HEADER STYLES ---*/

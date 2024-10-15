@@ -87,6 +87,12 @@ main {
 }
 
  /*---GAME PAGE BASE STYLES---*/
+ .game{
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+ }
+
 .instructions {
     /*width:400px;*/
     width: 30%;
@@ -211,10 +217,10 @@ main {
 
 .controls {
     /*width: 450px;*/
-    width: 80%;
+    width: 95%;
     display: flex;
     justify-content: center;
-    margin: 0 0 40px 0;
+    margin: 0 0 3% 0;
     background: #b0b0b0;
     border: 1px solid rgb(0, 0, 0);
     border-radius: 0.5em;
@@ -243,8 +249,7 @@ button:hover{
 }
 
 .turns button{
-    margin: 0 5px;
-    width: 120px;
+    width: 45%;
 }
 
 .win {

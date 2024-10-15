@@ -52,18 +52,18 @@ main.appendChild(startAgain);
 
 // create div for main area
 const game = document.createElement("div");
-game.classList.add("main");
-game.classList.add("hide");
-app.appendChild(game);
+game.classList.add("game");
+game.classList.add("hide"); 
+main.appendChild(game);
 
 // create control buttons section
 const controls = document.createElement("div");
 controls.classList.add("controls");
-controls.classList.add("hide");
+//controls.classList.add("hide"); ?remove 
 game.appendChild(controls);
 const turns = document.createElement("div");
 turns.classList.add("turns");
-turns.classList.add("hide");
+//turns.classList.add("hide"); ?remove
 controls.appendChild(turns);
 
 // create a div for instructions with a heading and paragraph
@@ -76,29 +76,24 @@ instructions.innerText = "Please select a level";
 instructionsDiv.classList.add("instructions");
 instructionsDiv.appendChild(instructions);
 instructionsDiv.classList.add("instructionsStart");
-instructionsDiv.classList.add("hide");
-main.appendChild(instructionsDiv);
+game.appendChild(instructionsDiv);
 
 // Re-start function
 startAgain.addEventListener("click", function (e) {
+    //hide start again button
     startAgain.classList.add("hide");
-    levelSelect.classList.remove("hide");
-    main.classList.add("hide");
-    gameBoard.classList.add("hide");
+    //clear gameboard
     gameBoard.innerHTML = "";
-    instructionsHeading.innerText = "";
-    instructions.classList.remove("hide");
-    instructionsDiv.classList.add("instructionsStart");
-    instructions.innerText = "Please select a level";
-    instructionsDiv.classList.remove("win");
-    //to re-set controls content 
+    //re-set controls content 
     controls.innerHTML = "";
     turns.innerHTML = "";
     controls.appendChild(turns);
-    //re-set win
-    win.classList.add("hide");
+    //hide game
+    game.classLis.add("hide");
+    //re-create start screen
+    startInstructionsDiv.classList.remove("hide");
+    levelSelect.classList.remove("hide");
 })
-
 
 
 // create div for gameboard
@@ -121,16 +116,21 @@ const creatureInfo = getComputedStyle(gridBot);
 
 // create a 5x5 gameboard on Level One button click
 demoLevel.addEventListener("click", function (e) {
-    //show controls and gameboard
+    //hide starting instructions and level selection
+    startInstructionsDiv.classList.add("hide");
+    levelSelect.classList.add("hide");
+    //show the game
     game.classList.remove("hide");
+
+    //show controls 
     gameBoard.classList.remove("hide");
     controls.classList.remove("hide");
     turns.classList.remove("hide");
+
     //update instructions
     instructionsDiv.classList.remove("instructionsStart");
     instructions.innerHTML = "Click the buttons to turn and move the creature to the finish <br><br> Be careful to avoid the hidden walls!";
-    //hide select level buttons
-    levelSelect.classList.add("hide");
+
     //create gameboard
     for (let i = 1; i < 26; i++) {
         const gridItem = document.createElement("div");

@@ -3,10 +3,71 @@ const app = document.querySelector(".app");
 // create starting layout
 app.classList.add("appStart");
 
-// create the a heading
-const header = document.createElement("h1");
-header.innerText = "Hidden Maze";
+// create the heading
+const header = document.createElement("header");
+const heading = document.createElement("h1");
+heading.innerText = "Hidden Maze";
+header.appendChild(heading);
 app.appendChild(header);
+
+//create a main section
+const main = document.createElement("main");
+app.appendChild(main);
+
+// create a div for instructions with a heading and paragraph
+const startInstructionsDiv = document.createElement("div");
+startInstructions = document.createElement("p");
+startInstructions.innerText = "Please click or tap on an option below to select a difficulty level";
+startInstructionsDiv.classList.add("startInstructions");
+startInstructionsDiv.appendChild(startInstructions);
+startInstructionsDiv.classList.add("startInstructions");
+main.appendChild(startInstructionsDiv);
+
+// create section for buttons for level selection
+const levelSelect = document.createElement("div");
+levelSelect.classList.add("levels");
+main.appendChild(levelSelect);
+//demo level button
+const demoLevel = document.createElement("button");
+demoLevel.innerText = "Level 1";
+levelSelect.appendChild(demoLevel);
+// level 2 button
+const levelTwo = document.createElement("button");
+levelTwo.innerText = "Level 2";
+levelSelect.appendChild(levelTwo);
+
+//create a footer section
+const footer = document.createElement("footer");
+app.appendChild(footer);
+
+//create written by section
+const by = document.createElement("p");
+by.innerText = "By Al Poliakow 2024";
+by.classList.add("by");
+footer.appendChild(by);
+
+//create Start Again button and hide it
+const startAgain = document.createElement("button");
+startAgain.innerText = "Start again";
+startAgain.classList.add("startAgain");
+startAgain.classList.add("hide");
+main.appendChild(startAgain);
+
+// create div for main area
+const game = document.createElement("div");
+game.classList.add("main");
+game.classList.add("hide");
+app.appendChild(game);
+
+// create control buttons section
+const controls = document.createElement("div");
+controls.classList.add("controls");
+controls.classList.add("hide");
+game.appendChild(controls);
+const turns = document.createElement("div");
+turns.classList.add("turns");
+turns.classList.add("hide");
+controls.appendChild(turns);
 
 // create a div for instructions with a heading and paragraph
 const instructionsDiv = document.createElement("div");
@@ -18,30 +79,8 @@ instructions.innerText = "Please select a level";
 instructionsDiv.classList.add("instructions");
 instructionsDiv.appendChild(instructions);
 instructionsDiv.classList.add("instructionsStart");
-app.appendChild(instructionsDiv);
-
-//create Start Again button and hide it
-const startAgain = document.createElement("button");
-startAgain.innerText = "Start again";
-startAgain.classList.add("startAgain");
-startAgain.classList.add("hide");
-app.appendChild(startAgain);
-
-// create div for main area
-const main = document.createElement("div");
-main.classList.add("main");
-main.classList.add("hide");
-app.appendChild(main);
-
-// create control buttons section
-const controls = document.createElement("div");
-controls.classList.add("controls");
-controls.classList.add("hide");
-main.appendChild(controls);
-const turns = document.createElement("div");
-turns.classList.add("turns");
-turns.classList.add("hide");
-controls.appendChild(turns);
+instructionsDiv.classList.add("hide");
+main.appendChild(instructionsDiv);
 
 // Re-start function
 startAgain.addEventListener("click", function (e) {
@@ -64,25 +103,13 @@ startAgain.addEventListener("click", function (e) {
     win.classList.add("hide");
 })
 
-// create section for buttons for level selection
-const levelSelect = document.createElement("div");
-levelSelect.classList.add("levels");
-app.appendChild(levelSelect);
-//demo level button
-const demoLevel = document.createElement("button");
-demoLevel.innerText = "Level 1";
-levelSelect.appendChild(demoLevel);
-// level 2 button
-const levelTwo = document.createElement("button");
-levelTwo.innerText = "Level 2";
-levelSelect.appendChild(levelTwo);
 
 
 // create div for gameboard
 const gameBoard = document.createElement("div");
 gameBoard.classList.add("gameboard");
 gameBoard.classList.add("hide");
-main.appendChild(gameBoard);
+game.appendChild(gameBoard);
   
 
 // create win message
@@ -92,14 +119,6 @@ win.innerText="You made it!!!"
 win.classList.add("hide");
 
 
-
-//create written by section
-const by = document.createElement("p");
-by.innerText = "By Al Poliakow 2024";
-by.classList.add("by");
-app.appendChild(by);
-by.style.width = "100%";
-
 const gridBot = document.createElementNS("http://www.w3.org/2000/svg", `svg`);
 //const gridBot = document.createElement("div");
 const creatureInfo = getComputedStyle(gridBot);
@@ -108,7 +127,7 @@ const creatureInfo = getComputedStyle(gridBot);
 demoLevel.addEventListener("click", function (e) {
     app.classList.remove("appStart");
     //show controls and gameboard
-    main.classList.remove("hide");
+    game.classList.remove("hide");
     gameBoard.classList.remove("hide");
     controls.classList.remove("hide");
     turns.classList.remove("hide");
@@ -484,7 +503,7 @@ demoLevel.addEventListener("click", function (e) {
                 controls.classList.add("hide");
                 turns.classList.add("hide");
                 startAgain.classList.remove("hide");
-                main.style.width = "100%";
+                game.style.width = "100%";
                 gridBot.setAttribute("transform", `rotate(0)`);
                 win.classList.remove("hide");
                 //change finish div appearance
@@ -509,7 +528,7 @@ demoLevel.addEventListener("click", function (e) {
 levelTwo.addEventListener("click", function (e) {
     app.classList.remove("appStart");
     //show controls and gameboard
-    main.classList.remove("hide");
+    game.classList.remove("hide");
     gameBoard.classList.remove("hide");
     controls.classList.remove("hide");
     turns.classList.remove("hide");

@@ -53,8 +53,16 @@ main.appendChild(startAgain);
 // create div for main area
 const game = document.createElement("div");
 game.classList.add("game");
-game.classList.add("hide"); 
+game.classList.add("hide");
 main.appendChild(game);
+
+// create a div for instructions with a heading and paragraph
+const instructionsDiv = document.createElement("div");
+instructions = document.createElement("p");
+instructions.innerHTML = "Click the buttons to turn and move the creature to the green square <br><br> Be careful to avoid the hidden walls!";
+instructionsDiv.classList.add("instructions");
+instructionsDiv.appendChild(instructions);
+game.appendChild(instructionsDiv);
 
 // create control buttons section
 const controls = document.createElement("div");
@@ -65,18 +73,6 @@ const turns = document.createElement("div");
 turns.classList.add("turns");
 //turns.classList.add("hide"); ?remove
 controls.appendChild(turns);
-
-// create a div for instructions with a heading and paragraph
-const instructionsDiv = document.createElement("div");
-instructions = document.createElement("p");
-const instructionsHeading = document.createElement("h2");
-//instructionsHeading.innerText = "Instructions:";
-instructionsDiv.appendChild(instructionsHeading);
-instructions.innerText = "Please select a level";
-instructionsDiv.classList.add("instructions");
-instructionsDiv.appendChild(instructions);
-instructionsDiv.classList.add("instructionsStart");
-game.appendChild(instructionsDiv);
 
 // Re-start function
 startAgain.addEventListener("click", function (e) {
@@ -89,10 +85,13 @@ startAgain.addEventListener("click", function (e) {
     turns.innerHTML = "";
     controls.appendChild(turns);
     //hide game
-    game.classLis.add("hide");
+    game.classList.add("hide");
     //re-create start screen
+    win.classList.add("hide");
     startInstructionsDiv.classList.remove("hide");
     levelSelect.classList.remove("hide");
+    //resize 
+    app.style.height = "100vh";
 })
 
 
@@ -101,12 +100,12 @@ const gameBoard = document.createElement("div");
 gameBoard.classList.add("gameboard");
 gameBoard.classList.add("hide");
 game.appendChild(gameBoard);
-  
+
 
 // create win message
 const win = document.createElement("div");
 win.classList.add("win");
-win.innerText="You made it!!!"
+win.innerText = "You made it!!!"
 win.classList.add("hide");
 
 
@@ -116,25 +115,23 @@ const creatureInfo = getComputedStyle(gridBot);
 
 // create a 5x5 gameboard on Level One button click
 demoLevel.addEventListener("click", function (e) {
+    //resize 
+    app.style.height = "auto";
     //hide starting instructions and level selection
     startInstructionsDiv.classList.add("hide");
     levelSelect.classList.add("hide");
     //show the game
     game.classList.remove("hide");
-
-    //show controls 
     gameBoard.classList.remove("hide");
     controls.classList.remove("hide");
     turns.classList.remove("hide");
-
-    //update instructions
-    instructionsDiv.classList.remove("instructionsStart");
-    instructions.innerHTML = "Click the buttons to turn and move the creature to the finish <br><br> Be careful to avoid the hidden walls!";
+    instructionsDiv.classList.remove("hide");
 
     //create gameboard
     for (let i = 1; i < 26; i++) {
         const gridItem = document.createElement("div");
         gridItem.classList.add("grid-item");
+        gridItem.classList.add("levelOne");
         // add index attribute 
         gridItem.setAttribute("index", i);
         // add each space to the board
@@ -156,7 +153,7 @@ demoLevel.addEventListener("click", function (e) {
             //div.style.background = " #80b883";
         }
     });
-    gameBoard.appendChild(win);
+    game.appendChild(win);
 
 
     // create creature 
@@ -172,16 +169,6 @@ demoLevel.addEventListener("click", function (e) {
     gridBot.classList.add("creature");
     //append creature to first div
     gameBoard.firstChild.append(gridBot);
-
-    //const bear = '\u{1F43B}';
-    //console.log(bear); 
-
-
-
-    //<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d=/></svg>
-
-
-
 
 
     // create a button to rotate the creature upwards
@@ -492,14 +479,16 @@ demoLevel.addEventListener("click", function (e) {
         //check to see if the creature has reached the end 
         const checkForWin = function () {
             if (gridBot.parentElement.getAttribute("index") == 25) {
-                //instructionsHeading.innerText = "You made it!";
+                //hide the game instructions
                 instructionsDiv.classList.add("hide");
-                //instructionsDiv.classList.add("win");
                 controls.classList.add("hide");
                 turns.classList.add("hide");
+                //show the start again button
                 startAgain.classList.remove("hide");
                 game.style.width = "100%";
+                //make the creature face down
                 gridBot.setAttribute("transform", `rotate(0)`);
+                //show the win message
                 win.classList.remove("hide");
                 //change finish div appearance
                 divs.forEach((div) => {
@@ -510,8 +499,6 @@ demoLevel.addEventListener("click", function (e) {
                     if (divIndexNumber == 25) {
                         const finishText = document.querySelector(".finish");
                         finishText.innerText = "";
-                        div.classList.remove("finishSquare");
-                        console.log("Show Finish");
                     }
                 });
             }
@@ -521,19 +508,26 @@ demoLevel.addEventListener("click", function (e) {
 })
 
 levelTwo.addEventListener("click", function (e) {
-    //show controls and gameboard
-    game.classList.remove("hide");
-    gameBoard.classList.remove("hide");
-    controls.classList.remove("hide");
-    turns.classList.remove("hide");
-    //change instructions width
-    instructionsDiv.classList.remove("instructionsStart");
-    //hide select level buttons
-    levelSelect.classList.add("hide");
-
+    //resize 
+    app.style.height = "auto";
+     //hide starting instructions and level selection
+     startInstructionsDiv.classList.add("hide");
+     levelSelect.classList.add("hide");
+     //show the game
+     game.classList.remove("hide");
+     gameBoard.classList.remove("hide");
+     controls.classList.remove("hide");
+     turns.classList.remove("hide");
+     instructionsDiv.classList.remove("hide");
+ 
+     //update instructions
+     instructions.innerHTML = "Click the buttons to turn and move the creature to the green square <br><br> Be careful to avoid the hidden walls!";
+ 
+     //create gameboard
     for (let i = 1; i < 101; i++) {
         const gridItem = document.createElement("div");
-        gridItem.classList.add("grid-item2"); // different class for different size spaces
+        gridItem.classList.add("grid-item");
+        gridItem.classList.add("levelTwo"); // different class for different size spaces
         // add index attribute 
         gridItem.setAttribute("index", i);
         // gridItem.innerText = i;
@@ -541,10 +535,10 @@ levelTwo.addEventListener("click", function (e) {
         gameBoard.appendChild(gridItem);
     }
 
-    gameBoard.appendChild(win);
+    game.appendChild(win);
 
     // get all divs
-    const divs = document.querySelectorAll(".grid-item2");
+    const divs = document.querySelectorAll(".grid-item");
 
     // allocate start and finish squares
     divs.forEach((div) => {
@@ -554,8 +548,6 @@ levelTwo.addEventListener("click", function (e) {
         const divIndexNumber = parseInt(divIndex);
 
         if (divIndexNumber == 100) {
-            div.innerHTML = `<p class="finish2">Finish</p>`; //class changed for size adaptations
-            console.log("Show Finish");
             div.style.background = " #80b883";
         }
     });
@@ -571,7 +563,7 @@ levelTwo.addEventListener("click", function (e) {
     iconPath.setAttribute("d", "M256 0a256 256 0 1 0 0 512A256 256 0 1 0 256 0zM135 241c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l87 87 87-87c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9L273 345c-9.4 9.4-24.6 9.4-33.9 0L135 241z");
     iconPath.setAttribute('stroke-width', '6'); //thickness of lines
     gridBot.appendChild(iconPath);
-    gridBot.classList.add("creature2"); // smaller size for smaller square
+    gridBot.classList.add("creature");
     //append creature to first div
     gameBoard.firstChild.append(gridBot);
 
@@ -703,7 +695,7 @@ levelTwo.addEventListener("click", function (e) {
                             div.appendChild(gridBot);
                             console.log("attempted to shift left");
                         }
-                    } else if (parent == 1 | parent == 11 | parent == 21 | parent == 31 |parent == 41 | parent == 71 | parent == 81 | parent == 91) {
+                    } else if (parent == 1 | parent == 11 | parent == 21 | parent == 31 | parent == 41 | parent == 71 | parent == 81 | parent == 91) {
                         instructions.innerText = "You've hit a wall";
                     } else {
                         instructions.innerText = "You've hit a wall";
@@ -773,7 +765,6 @@ levelTwo.addEventListener("click", function (e) {
         //check to see if the creature has reached the end 
         const checkForWin = function () {
             if (gridBot.parentElement.getAttribute("index") == 100) {
-                //instructionsHeading.innerText = "You made it!";
                 instructionsDiv.classList.add("hide");
                 //instructionsDiv.classList.add("win");
                 controls.classList.add("hide");

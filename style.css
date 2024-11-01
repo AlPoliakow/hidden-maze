@@ -61,7 +61,7 @@ main {
     font-size: 1.5em;
     font-style: normal;
     line-height: 1.5em;
-    background: #608A91;
+    background: #9ABCBC; /* mathced color altered for accessibility */
     color: #0C211D;
     /* selected from background image */
     border: #FFFFFF 2px solid;
@@ -90,7 +90,7 @@ main {
     padding: 0.25em;
     color: #FFFFFF;
     border: solid #FFFFFF 3px;
-    background: #609167;
+    background: #547D59; /* matched color darkened for accessibility */
 }
 
 footer {
@@ -130,10 +130,7 @@ footer {
     padding: 0 1.5em;
     font-size: 0.9em;
     font-style: normal;
-    /* background:#4A7750;
-    background: #599559;*/
-    background: #608A91;
-    /* monochromatic selection from levels button */
+    background: #9ABCBC; /* mathced color altered for accessibility */
     color: #0C211D;
     margin: 0 0 3% 0;
     border: #FFFFFF 2px solid;
@@ -238,7 +235,8 @@ button:hover {
 }
 
 .finishSquare { /*to clean up */
-    background: #80b883;
+    background-image: url("img/finish.jpg");
+    background-size: cover;
 }
 
 .creature {
@@ -258,15 +256,14 @@ button:hover {
     padding: 1em;
     font-size: 2em;
     font-weight: 600;
-    background: #91608A;
-    /*Complimentary color */
+    background: #B18BB0; /*Complimentary color lightened for accessibility */
     border: white 2px solid;
     text-transform: uppercase;
 }
 
 .win {
     z-index: 2;
-    background: #607291;
+    background: #4B5971; /* color darkened for accessibility */
     color: #FFFFFF;
     position: relative;
     top: -27vh; /* positions over gameboard */

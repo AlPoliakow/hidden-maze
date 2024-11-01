@@ -90,8 +90,6 @@ startAgain.addEventListener("click", function (e) {
     win.classList.add("hide");
     startInstructionsDiv.classList.remove("hide");
     levelSelect.classList.remove("hide");
-    //resize 
-    app.style.height = "100vh";
 })
 
 
@@ -115,8 +113,6 @@ const creatureInfo = getComputedStyle(gridBot);
 
 // create a 5x5 gameboard on Level One button click
 demoLevel.addEventListener("click", function (e) {
-    //resize 
-    app.style.height = "auto";
     //hide starting instructions and level selection
     startInstructionsDiv.classList.add("hide");
     levelSelect.classList.add("hide");
@@ -147,7 +143,7 @@ demoLevel.addEventListener("click", function (e) {
         const divIndexNumber = parseInt(divIndex);
         // select for the 25th space
         if (divIndexNumber == 25) {
-            div.innerHTML = `<p class="finish">Finish</p>`;
+            //div.innerHTML = `<p class="finish">Finish</p>`;
             div.classList.add("finishSquare");
             console.log("Show Finish");
             //div.style.background = " #80b883";
@@ -174,6 +170,7 @@ demoLevel.addEventListener("click", function (e) {
     // create a button to rotate the creature upwards
     const rotateUp = document.createElement("button");
     rotateUp.innerText = "Face up";
+    rotateUp.classList.add("up");
     rotateUp.style.margin = "10px 40px";
     turns.appendChild(rotateUp);
 
@@ -187,6 +184,7 @@ demoLevel.addEventListener("click", function (e) {
     // create a button to rotate the creature left
     const rotateLeft = document.createElement("button");
     rotateLeft.innerText = "Face left";
+    rotateLeft.classList.add("left");
     rotateLeft.style.margin = "0 5px";
     turns.appendChild(rotateLeft);
 
@@ -200,6 +198,7 @@ demoLevel.addEventListener("click", function (e) {
     // create a button to rotate the creature right
     const rotateRight = document.createElement("button");
     rotateRight.innerText = "Face right";
+    rotateRight.classList.add("right");
     rotateRight.style.margin = "0 5px";
     turns.appendChild(rotateRight);
 
@@ -213,6 +212,7 @@ demoLevel.addEventListener("click", function (e) {
     // create a button to rotate the creature downwards
     const rotateDown = document.createElement("button");
     rotateDown.innerText = "Face down";
+    rotateDown.classList.add("down");
     rotateDown.style.margin = "10px 40px";
     turns.appendChild(rotateDown);
 
@@ -226,6 +226,7 @@ demoLevel.addEventListener("click", function (e) {
     const advance = document.createElement("button");
     advance.style.margin = "25px 30px";
     advance.style.width = "60px";
+    advance.classList.add("advance");
     advance.innerText = "Move";
     controls.appendChild(advance);
 
@@ -508,8 +509,6 @@ demoLevel.addEventListener("click", function (e) {
 })
 
 levelTwo.addEventListener("click", function (e) {
-    //resize 
-    app.style.height = "auto";
      //hide starting instructions and level selection
      startInstructionsDiv.classList.add("hide");
      levelSelect.classList.add("hide");

@@ -59,7 +59,7 @@ main.appendChild(game);
 // create a div for instructions with a heading and paragraph
 const instructionsDiv = document.createElement("div");
 instructions = document.createElement("p");
-instructions.innerHTML = "Click the buttons to turn and move the creature to the green square <br><br> Be careful to avoid the hidden walls!";
+instructions.innerHTML = "Click the buttons to turn and move to the checkered finish square <br><br> Be careful to avoid the hidden walls!";
 instructionsDiv.classList.add("instructions");
 instructionsDiv.appendChild(instructions);
 game.appendChild(instructionsDiv);
@@ -143,10 +143,7 @@ demoLevel.addEventListener("click", function (e) {
         const divIndexNumber = parseInt(divIndex);
         // select for the 25th space
         if (divIndexNumber == 25) {
-            //div.innerHTML = `<p class="finish">Finish</p>`;
             div.classList.add("finishSquare");
-            console.log("Show Finish");
-            //div.style.background = " #80b883";
         }
     });
     game.appendChild(win);
@@ -246,7 +243,7 @@ demoLevel.addEventListener("click", function (e) {
         //console.log(parentUndery);
 
         // update the instructions 
-        instructions.innerHTML = "Click the buttons to turn and move the creature to the finish <br><br> Be careful to avoid the hidden walls!";
+        instructions.innerHTML = "Click the buttons to turn and move to the checkered finish square <br><br> Be careful to avoid the hidden walls!";
 
         // advance the creature in the direction it's facing
         switch (creatureInfo.getPropertyValue("transform")) {
@@ -295,7 +292,7 @@ demoLevel.addEventListener("click", function (e) {
                         case '24':
                         case '25':
                             //console.log("do not advance"); 
-                            instructions.innerHTML = "Oops! You've hit a wall <br><br> Click the buttons to turn and move the creature to the finish <br><br> Be careful to avoid the hidden walls!";
+                            instructions.innerHTML = "Oops! You've hit a wall <br><br> Click the buttons to turn and move to the checkered finish square <br><br> Be careful to avoid the hidden walls!";
                             //select for the div below 
                             if (divIndexNumber == parentUndery) {
                                 div.classList.add("wall");
@@ -332,7 +329,7 @@ demoLevel.addEventListener("click", function (e) {
                         //make it stop at the left border 
                         case '1':
                         case '6':
-                            instructions.innerHTML = "Oops! You've hit a wall <br><br> Click the buttons to turn and move the creature to the finish <br><br> Be careful to avoid the hidden walls!";
+                            instructions.innerHTML = "Oops! You've hit a wall <br><br> Click the buttons to turn and move to the checkered finish square <br><br> Be careful to avoid the hidden walls!";
                             break;
                         // make it stop and reveal walls
                         case '2':
@@ -353,7 +350,7 @@ demoLevel.addEventListener("click", function (e) {
                         case '23':
                         case '24':
                             console.log("do not advance"); //registered
-                            instructions.innerHTML = "Oops! You've hit a wall <br><br> Click the buttons to turn and move the creature to the finish <br><br> Be careful to avoid the hidden walls!";
+                            instructions.innerHTML = "Oops! You've hit a wall <br><br> Click the buttons to turn and move to the checkered finish square <br><br> Be careful to avoid the hidden walls!";
                             if (divIndexNumber == parentLefty) {
                                 div.classList.add("wall");
                                 console.log("revealed a wall");
@@ -388,7 +385,7 @@ demoLevel.addEventListener("click", function (e) {
                             break;
                         //make it stop at the right border 
                         case '15':
-                            instructions.innerHTML = "Oops! You've hit a wall <br><br> Click the buttons to turn and move the creature to the finish <br><br> Be careful to avoid the hidden walls!";
+                            instructions.innerHTML = "Oops! You've hit a wall <br><br> Click the buttons to turn and move to the checkered finish square <br><br> Be careful to avoid the hidden walls!";
                             break;
                         //make it stop and reveal walls to right
                         case '1':
@@ -415,7 +412,7 @@ demoLevel.addEventListener("click", function (e) {
                                 div.classList.add("wall");
                                 console.log("revealed a wall to the right");
                             }
-                            instructions.innerHTML = instructions.innerHTML = "Oops! You've hit a wall <br><br> Click the buttons to turn and move the creature to the finish <br><br> Be careful to avoid the hidden walls!";
+                            instructions.innerHTML = instructions.innerHTML = "Oops! You've hit a wall <br><br> Click the buttons to turn and move to the checkered finish square <br><br> Be careful to avoid the hidden walls!";
                             break;
                     }
                 })
@@ -466,7 +463,7 @@ demoLevel.addEventListener("click", function (e) {
                         case '23':
                         case '25':
                             console.log("do not advance"); //registered
-                            instructions.innerHTML = "Oops! You've hit a wall <br><br> Click the buttons to turn and move the creature";
+                            instructions.innerHTML = "Oops! You've hit a wall <br><br> Click the buttons to turn and move to the checkered finish square";
                             if (divIndexNumber == parentUppy) {
                                 div.classList.add("wall");
                                 console.log("revealed a wall");
@@ -509,20 +506,20 @@ demoLevel.addEventListener("click", function (e) {
 })
 
 levelTwo.addEventListener("click", function (e) {
-     //hide starting instructions and level selection
-     startInstructionsDiv.classList.add("hide");
-     levelSelect.classList.add("hide");
-     //show the game
-     game.classList.remove("hide");
-     gameBoard.classList.remove("hide");
-     controls.classList.remove("hide");
-     turns.classList.remove("hide");
-     instructionsDiv.classList.remove("hide");
- 
-     //update instructions
-     instructions.innerHTML = "Click the buttons to turn and move the creature to the green square <br><br> Be careful to avoid the hidden walls!";
- 
-     //create gameboard
+    //hide starting instructions and level selection
+    startInstructionsDiv.classList.add("hide");
+    levelSelect.classList.add("hide");
+    //show the game
+    game.classList.remove("hide");
+    gameBoard.classList.remove("hide");
+    controls.classList.remove("hide");
+    turns.classList.remove("hide");
+    instructionsDiv.classList.remove("hide");
+
+    //update instructions
+    instructions.innerHTML = "Click the buttons to turn and move to the checkered finish square <br><br> Be careful to avoid the hidden walls!";
+
+    //create gameboard
     for (let i = 1; i < 101; i++) {
         const gridItem = document.createElement("div");
         gridItem.classList.add("grid-item");
@@ -545,9 +542,9 @@ levelTwo.addEventListener("click", function (e) {
         const divIndex = div.getAttribute("index");
         //console.log(divIndex);
         const divIndexNumber = parseInt(divIndex);
-
+        //show finish
         if (divIndexNumber == 100) {
-            div.style.background = " #80b883";
+            div.classList.add("finishSquare");
         }
     });
 
@@ -579,7 +576,7 @@ levelTwo.addEventListener("click", function (e) {
     rotateUp.addEventListener("click", function (e) {
         e.preventDefault();
         gridBot.setAttribute("transform", `rotate(180)`);
-        instructions.innerText = "Click the buttons to turn and move the creature";
+        instructions.innerText = "Click the buttons to turn and move to the checkered finish square";
         //console.log(creatureInfo.getPropertyValue("transform"));// matrix(-1, 0, 0, -1, 0, 0)
     })
 
@@ -594,7 +591,7 @@ levelTwo.addEventListener("click", function (e) {
     rotateLeft.addEventListener("click", function (e) {
         e.preventDefault();
         gridBot.setAttribute("transform", `rotate(90)`);
-        instructions.innerText = "Click the buttons to turn and move the creature";
+        instructions.innerText = "Click the buttons to turn and move to the checkered finish square";
         // console.log(creatureInfo.getPropertyValue("transform")); // matrix(0, 1, -1, 0, 0, 0)
     })
 
@@ -607,7 +604,7 @@ levelTwo.addEventListener("click", function (e) {
     rotateRight.addEventListener("click", function (e) {
         e.preventDefault();
         gridBot.setAttribute("transform", `rotate(-90)`);
-        instructions.innerText = "Click the buttons to turn and move the creature";
+        instructions.innerText = "Click the buttons to turn and move to the checkered finish square";
         // console.log(creatureInfo.getPropertyValue("transform")); //matrix(0, -1, 1, 0, 0, 0)
     })
 
@@ -622,7 +619,7 @@ levelTwo.addEventListener("click", function (e) {
     rotateDown.addEventListener("click", function (e) {
         e.preventDefault();
         gridBot.setAttribute("transform", `rotate(0)`);
-        instructions.innerText = "Click the buttons to turn and move the creature";
+        instructions.innerText = "Click the buttons to turn and move to the checkered finish square";
         //console.log(creatureInfo.getPropertyValue("transform")); //matrix(1, 0, 0, 1, 0, 0)
     })
 
@@ -649,7 +646,7 @@ levelTwo.addEventListener("click", function (e) {
         console.log(parentUndery);
         console.log(parent);
 
-        instructions.innerText = "Click the buttons to turn and move the creature";
+        instructions.innerText = "Click the buttons to turn and move to the checkered finish square";
 
         switch (creatureInfo.getPropertyValue("transform")) {
             case "matrix(1, 0, 0, 1, 0, 0)":
@@ -668,9 +665,9 @@ levelTwo.addEventListener("click", function (e) {
                             console.log("attempted to shift down");
                         }
                     } else if (parent == 91 | parent == 92 | parent == 93 | parent == 95 | parent == 96 | parent == 97 | parent == 98 | parent == 100) {
-                        instructions.innerText = "You've hit a wall";
+                        instructions.innerText = "Oops! You've hit a wall <br><br> Click the buttons to turn and move to the checkered finish square";
                     } else {
-                        instructions.innerText = "You've hit a wall";
+                        instructions.innerText = "Oops! You've hit a wall <br><br> Click the buttons to turn and move to the checkered finish square";
                         //select for the div below 
                         if (divIndexNumber == parentUndery) {
                             div.classList.add("wall");
@@ -695,9 +692,9 @@ levelTwo.addEventListener("click", function (e) {
                             console.log("attempted to shift left");
                         }
                     } else if (parent == 1 | parent == 11 | parent == 21 | parent == 31 | parent == 41 | parent == 71 | parent == 81 | parent == 91) {
-                        instructions.innerText = "You've hit a wall";
+                        instructions.innerText = "Oops! You've hit a wall <br><br> Click the buttons to turn and move to the checkered finish square";
                     } else {
-                        instructions.innerText = "You've hit a wall";
+                        instructions.innerText = "Oops! You've hit a wall <br><br> Click the buttons to turn and move to the checkered finish square";
                         //select for the div below 
                         if (divIndexNumber == parentLefty) {
                             div.classList.add("wall");
@@ -721,9 +718,9 @@ levelTwo.addEventListener("click", function (e) {
                             console.log("attempted to shift right");
                         }
                     } else if (parent == 10 | parent == 20 | parent == 30 | parent == 40 | parent == 50 | parent == 60 | parent == 70 | parent == 80 | parent == 90 | parent == 100) {
-                        instructions.innerText = "You've hit a wall";
+                        instructions.innerText = "Oops! You've hit a wall <br><br> Click the buttons to turn and move to the checkered finish square";
                     } else {
-                        instructions.innerText = "You've hit a wall";
+                        instructions.innerText = "Oops! You've hit a wall <br><br> Click the buttons to turn and move to the checkered finish square";
                         //select for the div below 
                         if (divIndexNumber == parentRighty) {
                             div.classList.add("wall");
@@ -748,9 +745,9 @@ levelTwo.addEventListener("click", function (e) {
                             console.log("attempted to shift up");
                         }
                     } else if (parent == 1 | parent == 3 | parent == 5 | parent == 7 | parent == 8 | parent == 9 | parent == 10) {
-                        instructions.innerText = "You've hit a wall";
+                        instructions.innerText = "Oops! You've hit a wall <br><br> Click the buttons to turn and move to the checkered finish square";
                     } else {
-                        instructions.innerText = "You've hit a wall";
+                        instructions.innerText = "Oops! You've hit a wall <br><br> Click the buttons to turn and move to the checkered finish square";
                         //select for the div below 
                         if (divIndexNumber == parentUppy) {
                             div.classList.add("wall");

@@ -11,7 +11,7 @@ app.appendChild(header);
 const main = document.createElement("main");
 app.appendChild(main);
 
-// create a div for instructions with a heading and paragraph
+// create a div for start instructions with a paragraph
 const startInstructionsDiv = document.createElement("div");
 startInstructions = document.createElement("p");
 startInstructions.innerText = "Please click or tap on an option below to select a difficulty level";
@@ -50,13 +50,13 @@ startAgain.classList.add("startAgain");
 startAgain.classList.add("hide");
 main.appendChild(startAgain);
 
-// create div for main area
+// create div for game area
 const game = document.createElement("div");
 game.classList.add("game");
 game.classList.add("hide");
 main.appendChild(game);
 
-// create a div for instructions with a heading and paragraph
+// create a div for instructions with a paragraph
 const instructionsDiv = document.createElement("div");
 instructions = document.createElement("p");
 instructions.innerHTML = "Click the buttons to turn and move to the checkered finish square <br><br> Be careful to avoid the hidden walls!";
@@ -67,16 +67,14 @@ game.appendChild(instructionsDiv);
 // create control buttons section
 const controls = document.createElement("div");
 controls.classList.add("controls");
-//controls.classList.add("hide"); ?remove 
 game.appendChild(controls);
 const turns = document.createElement("div");
 turns.classList.add("turns");
-//turns.classList.add("hide"); ?remove
 controls.appendChild(turns);
 
 // Re-start function
 startAgain.addEventListener("click", function (e) {
-    //hide start again button
+    //hide start again button 
     startAgain.classList.add("hide");
     //clear gameboard
     gameBoard.innerHTML = "";
@@ -108,7 +106,6 @@ win.classList.add("hide");
 
 
 const gridBot = document.createElementNS("http://www.w3.org/2000/svg", `svg`);
-//const gridBot = document.createElement("div");
 const creatureInfo = getComputedStyle(gridBot);
 
 // create a 5x5 gameboard on Level One button click
@@ -155,7 +152,6 @@ demoLevel.addEventListener("click", function (e) {
     gridBot.setAttribute('viewBox', '0 0 512 512'); //from svg link
     gridBot.setAttribute('stroke', '#916760'); // color
     gridBot.setAttribute("transform", `rotate(0)`); // to make advancing work before button pressing
-    //iconPath.setAttribute("d", "M320 0c17.7 0 32 14.3 32 32l0 64 120 0c39.8 0 72 32.2 72 72l0 272c0 39.8-32.2 72-72 72l-304 0c-39.8 0-72-32.2-72-72l0-272c0-39.8 32.2-72 72-72l120 0 0-64c0-17.7 14.3-32 32-32zM208 384c-8.8 0-16 7.2-16 16s7.2 16 16 16l32 0c8.8 0 16-7.2 16-16s-7.2-16-16-16l-32 0zm96 0c-8.8 0-16 7.2-16 16s7.2 16 16 16l32 0c8.8 0 16-7.2 16-16s-7.2-16-16-16l-32 0zm96 0c-8.8 0-16 7.2-16 16s7.2 16 16 16l32 0c8.8 0 16-7.2 16-16s-7.2-16-16-16l-32 0zM264 256a40 40 0 1 0 -80 0 40 40 0 1 0 80 0zm152 40a40 40 0 1 0 0-80 40 40 0 1 0 0 80zM48 224l16 0 0 192-16 0c-26.5 0-48-21.5-48-48l0-96c0-26.5 21.5-48 48-48zm544 0c26.5 0 48 21.5 48 48l0 96c0 26.5-21.5 48-48 48l-16 0 0-192 16 0z");
     iconPath.setAttribute("d", "M256 0a256 256 0 1 0 0 512A256 256 0 1 0 256 0zM135 241c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l87 87 87-87c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9L273 345c-9.4 9.4-24.6 9.4-33.9 0L135 241z");
     iconPath.setAttribute('stroke-width', '6'); //thickness of lines
     gridBot.appendChild(iconPath);
@@ -266,10 +262,8 @@ demoLevel.addEventListener("click", function (e) {
                         case '13':
                         case '14':
                         case '19':
-                            // console.log("Move down");
                             if (divIndexNumber == parentUndery) {
                                 div.appendChild(gridBot);
-                                //console.log("attempted to shift down");
                             }
                             break;
                         // don't move, reveal a wall and stop at the bottom
@@ -291,12 +285,10 @@ demoLevel.addEventListener("click", function (e) {
                         case '23':
                         case '24':
                         case '25':
-                            //console.log("do not advance"); 
                             instructions.innerHTML = "Oops! You've hit a wall <br><br> Click the buttons to turn and move to the checkered finish square <br><br> Be careful to avoid the hidden walls!";
                             //select for the div below 
                             if (divIndexNumber == parentUndery) {
                                 div.classList.add("wall");
-                                //console.log("revealed a wall");
                             }
                             break;
                     }
@@ -304,13 +296,10 @@ demoLevel.addEventListener("click", function (e) {
                 break;
             case "matrix(0, 1, -1, 0, 0, 0)":
                 //facing left
-                //console.log("Rotation 90");
                 divs.forEach((div) => {
                     // isolate div index
                     const divIndex = div.getAttribute("index");
-                    //console.log(divIndex);
                     const divIndexNumber = parseInt(divIndex);
-                    //console.log(divIndexNumber);
 
                     switch (parent) {
                         //make it move left
@@ -320,10 +309,8 @@ demoLevel.addEventListener("click", function (e) {
                         case '15':
                         case '19':
                         case '25':
-                            //console.log("Move left");
                             if (divIndexNumber == parentLefty) {
                                 div.appendChild(gridBot);
-                                //console.log("attempted to shift left");
                             }
                             break;
                         //make it stop at the left border 
@@ -349,7 +336,6 @@ demoLevel.addEventListener("click", function (e) {
                         case '22':
                         case '23':
                         case '24':
-                            console.log("do not advance"); //registered
                             instructions.innerHTML = "Oops! You've hit a wall <br><br> Click the buttons to turn and move to the checkered finish square <br><br> Be careful to avoid the hidden walls!";
                             if (divIndexNumber == parentLefty) {
                                 div.classList.add("wall");
@@ -365,9 +351,7 @@ demoLevel.addEventListener("click", function (e) {
                 divs.forEach((div) => {
                     // isolate div index
                     const divIndex = div.getAttribute("index");
-                    //console.log(divIndex);
                     const divIndexNumber = parseInt(divIndex);
-                    //console.log(divIndexNumber);
 
                     switch (parent) {  // processing the parent divs index
                         //make it move
@@ -407,10 +391,8 @@ demoLevel.addEventListener("click", function (e) {
                         case '22':
                         case '23':
                         case '25':
-                            console.log("do not advance"); //registered
                             if (divIndexNumber == parentRighty) {
                                 div.classList.add("wall");
-                                console.log("revealed a wall to the right");
                             }
                             instructions.innerHTML = instructions.innerHTML = "Oops! You've hit a wall <br><br> Click the buttons to turn and move to the checkered finish square <br><br> Be careful to avoid the hidden walls!";
                             break;
@@ -423,9 +405,7 @@ demoLevel.addEventListener("click", function (e) {
                 divs.forEach((div) => {
                     // isolate div index
                     const divIndex = div.getAttribute("index");
-                    //console.log(divIndex);
                     const divIndexNumber = parseInt(divIndex);
-                    //console.log(divIndexNumber);
 
                     switch (parent) {  // processing the parent divs index
                         //make it move up
@@ -436,10 +416,8 @@ demoLevel.addEventListener("click", function (e) {
                         case '18':
                         case '19':
                         case '24':
-                            console.log("Move up");
                             if (divIndexNumber == parentUppy) {
                                 div.appendChild(gridBot);
-                                console.log("attempted to shift up");
                             }
                             break;
                         //make it stop at the top border and walls and reveal walls
@@ -462,11 +440,9 @@ demoLevel.addEventListener("click", function (e) {
                         case '22':
                         case '23':
                         case '25':
-                            console.log("do not advance"); //registered
                             instructions.innerHTML = "Oops! You've hit a wall <br><br> Click the buttons to turn and move to the checkered finish square";
                             if (divIndexNumber == parentUppy) {
                                 div.classList.add("wall");
-                                console.log("revealed a wall");
                             }
                             break;
                     }
@@ -526,7 +502,6 @@ levelTwo.addEventListener("click", function (e) {
         gridItem.classList.add("levelTwo"); // different class for different size spaces
         // add index attribute 
         gridItem.setAttribute("index", i);
-        // gridItem.innerText = i;
         // add each space to the board
         gameBoard.appendChild(gridItem);
     }
@@ -555,7 +530,6 @@ levelTwo.addEventListener("click", function (e) {
     gridBot.setAttribute('viewBox', '0 0 512 512'); //from svg link
     gridBot.setAttribute('stroke', '#5c5c5c'); // color
     gridBot.setAttribute("transform", `rotate(0)`); // to make advancing work before button pressing
-    //iconPath.setAttribute("d", "M320 0c17.7 0 32 14.3 32 32l0 64 120 0c39.8 0 72 32.2 72 72l0 272c0 39.8-32.2 72-72 72l-304 0c-39.8 0-72-32.2-72-72l0-272c0-39.8 32.2-72 72-72l120 0 0-64c0-17.7 14.3-32 32-32zM208 384c-8.8 0-16 7.2-16 16s7.2 16 16 16l32 0c8.8 0 16-7.2 16-16s-7.2-16-16-16l-32 0zm96 0c-8.8 0-16 7.2-16 16s7.2 16 16 16l32 0c8.8 0 16-7.2 16-16s-7.2-16-16-16l-32 0zm96 0c-8.8 0-16 7.2-16 16s7.2 16 16 16l32 0c8.8 0 16-7.2 16-16s-7.2-16-16-16l-32 0zM264 256a40 40 0 1 0 -80 0 40 40 0 1 0 80 0zm152 40a40 40 0 1 0 0-80 40 40 0 1 0 0 80zM48 224l16 0 0 192-16 0c-26.5 0-48-21.5-48-48l0-96c0-26.5 21.5-48 48-48zm544 0c26.5 0 48 21.5 48 48l0 96c0 26.5-21.5 48-48 48l-16 0 0-192 16 0z");
     iconPath.setAttribute("d", "M256 0a256 256 0 1 0 0 512A256 256 0 1 0 256 0zM135 241c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l87 87 87-87c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9L273 345c-9.4 9.4-24.6 9.4-33.9 0L135 241z");
     iconPath.setAttribute('stroke-width', '6'); //thickness of lines
     gridBot.appendChild(iconPath);
@@ -631,7 +605,6 @@ levelTwo.addEventListener("click", function (e) {
 
     advance.addEventListener("click", function (e) {
         e.preventDefault();
-        //console.log("clicked");
         const parent = gridBot.parentElement.getAttribute("index");
         console.log(parent); // 13
         let parentNumber = parseInt(parent);
@@ -655,14 +628,11 @@ levelTwo.addEventListener("click", function (e) {
                 divs.forEach((div) => {
                     // isolate div index
                     const divIndex = div.getAttribute("index");
-                    //console.log(divIndex);
                     const divIndexNumber = parseInt(divIndex);
-                    //console.log(divIndexNumber);
 
                     if (parent == 1 | parent == 3 | parent == 5 | parent == 7 | parent == 13 | parent == 15 | parent == 17 | parent == 10 | parent == 11 | parent == 20 | parent == 21 | parent == 23 | parent == 25 | parent == 28 | parent == 30 | parent == 31 | parent == 35 | parent == 38 | parent == 40 | parent == 45 | parent == 47 | parent == 50 | parent == 53 | parent == 55 | parent == 57 | parent == 60 | parent == 62 | parent == 67 | parent == 70 | parent == 71 | parent == 78 | parent == 80 | parent == 81 | parent == 83 | parent == 85 | parent == 88 | parent == 90) {
                         if (divIndexNumber == parentUndery) {
                             div.appendChild(gridBot);
-                            console.log("attempted to shift down");
                         }
                     } else if (parent == 91 | parent == 92 | parent == 93 | parent == 95 | parent == 96 | parent == 97 | parent == 98 | parent == 100) {
                         instructions.innerText = "Oops! You've hit a wall <br><br> Click the buttons to turn and move to the checkered finish square";
@@ -671,8 +641,6 @@ levelTwo.addEventListener("click", function (e) {
                         //select for the div below 
                         if (divIndexNumber == parentUndery) {
                             div.classList.add("wall");
-                            console.log("revealed a wall");
-                            //}
                         }
                     }
                 })
@@ -682,14 +650,11 @@ levelTwo.addEventListener("click", function (e) {
                 divs.forEach((div) => {
                     // isolate div index
                     const divIndex = div.getAttribute("index");
-                    //console.log(divIndex);
                     const divIndexNumber = parseInt(divIndex);
-                    //console.log(divIndexNumber);
 
                     if (parent == 8 | parent == 9 | parent == 10 | parent == 24 | parent == 25 | parent == 28 | parent == 32 | parent == 33 | parent == 36 | parent == 54 | parent == 55 | parent == 58 | parent == 63 | parent == 72 | parent == 78 | parent == 84 | parent == 85 | parent == 92 | parent == 93 | parent == 96 | parent == 97 | parent == 98) {
                         if (divIndexNumber == parentLefty) {
                             div.appendChild(gridBot);
-                            console.log("attempted to shift left");
                         }
                     } else if (parent == 1 | parent == 11 | parent == 21 | parent == 31 | parent == 41 | parent == 71 | parent == 81 | parent == 91) {
                         instructions.innerText = "Oops! You've hit a wall <br><br> Click the buttons to turn and move to the checkered finish square";
@@ -698,14 +663,12 @@ levelTwo.addEventListener("click", function (e) {
                         //select for the div below 
                         if (divIndexNumber == parentLefty) {
                             div.classList.add("wall");
-                            console.log("revealed a wall");
                         }
                     }
                 })
                 break;
             case "matrix(0, -1, 1, 0, 0, 0)":
                 //facing right
-                //console.log("Rotation -90");
                 divs.forEach((div) => {
                     // isolate div index
                     const divIndex = div.getAttribute("index");
@@ -715,7 +678,6 @@ levelTwo.addEventListener("click", function (e) {
                     if (parent == 7 | parent == 8 | parent == 9 | parent == 23 | parent == 24 | parent == 27 | parent == 31 | parent == 32 | parent == 35 | parent == 47 | parent == 53 | parent == 54 | parent == 62 | parent == 71 | parent == 77 | parent == 83 | parent == 84 | parent == 91 | parent == 92 | parent == 95 | parent == 96 | parent == 97) {
                         if (divIndexNumber == parentRighty) {
                             div.appendChild(gridBot);
-                            console.log("attempted to shift right");
                         }
                     } else if (parent == 10 | parent == 20 | parent == 30 | parent == 40 | parent == 50 | parent == 60 | parent == 70 | parent == 80 | parent == 90 | parent == 100) {
                         instructions.innerText = "Oops! You've hit a wall <br><br> Click the buttons to turn and move to the checkered finish square";
@@ -724,7 +686,6 @@ levelTwo.addEventListener("click", function (e) {
                         //select for the div below 
                         if (divIndexNumber == parentRighty) {
                             div.classList.add("wall");
-                            console.log("revealed a wall");
                         }
                     }
                 })
@@ -735,14 +696,11 @@ levelTwo.addEventListener("click", function (e) {
                 divs.forEach((div) => {
                     // isolate div index
                     const divIndex = div.getAttribute("index");
-                    //console.log(divIndex);
                     const divIndexNumber = parseInt(divIndex);
-                    //console.log(divIndexNumber);
 
                     if (parent == 11 | parent == 13 | parent == 15 | parent == 17 | parent == 20 | parent == 21 | parent == 23 | parent == 25 | parent == 27 | parent == 30 | parent == 33 | parent == 35 | parent == 38 | parent == 40 | parent == 41 | parent == 45 | parent == 48 | parent == 50 | parent == 55 | parent == 57 | parent == 60 | parent == 63 | parent == 65 | parent == 67 | parent == 70 | parent == 72 | parent == 77 | parent == 80 | parent == 81 | parent == 88 | parent == 90 | parent == 93 | parent == 95 | parent == 98) {
                         if (divIndexNumber == parentUppy) {
                             div.appendChild(gridBot);
-                            console.log("attempted to shift up");
                         }
                     } else if (parent == 1 | parent == 3 | parent == 5 | parent == 7 | parent == 8 | parent == 9 | parent == 10) {
                         instructions.innerText = "Oops! You've hit a wall <br><br> Click the buttons to turn and move to the checkered finish square";
@@ -751,7 +709,6 @@ levelTwo.addEventListener("click", function (e) {
                         //select for the div below 
                         if (divIndexNumber == parentUppy) {
                             div.classList.add("wall");
-                            console.log("revealed a wall");
                         }
                     }
                 })
@@ -762,7 +719,6 @@ levelTwo.addEventListener("click", function (e) {
         const checkForWin = function () {
             if (gridBot.parentElement.getAttribute("index") == 100) {
                 instructionsDiv.classList.add("hide");
-                //instructionsDiv.classList.add("win");
                 controls.classList.add("hide");
                 turns.classList.add("hide");
                 startAgain.classList.remove("hide");

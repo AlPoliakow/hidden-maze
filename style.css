@@ -28,7 +28,6 @@ header {
     width: 100%;
     height: 70px;
     background: #0C211D;
-    /*padding-bottom: 5%;*/
 }
 
 h1 {
@@ -38,7 +37,6 @@ h1 {
     padding:0.25em;
     font-style: normal;
     color: #FFFFFF;
-    /*#0D1723;*/
     width: 100%;
     text-align: center;
     text-transform: uppercase;
@@ -61,13 +59,11 @@ main {
     font-size: 1.5em;
     font-style: normal;
     line-height: 1.5em;
-    background: #9ABCBC; /* mathced color altered for accessibility */
-    color: #0C211D;
-    /* selected from background image */
+    background: #9ABCBC; /* matched color altered for accessibility */
+    color: #0C211D;   /* selected from background image */
     border: #FFFFFF 2px solid;
     border-radius: 0.25em;
     box-sizing: border-box;
-    /*margin-top: 2em;*/
     padding: 1em 2em;
     display: flex;
     flex-direction:column;
@@ -111,7 +107,7 @@ footer {
     color: #FFFFFF;
 }
 
-/*---GAME PAGE BASE STYLES---*/
+/*---GAME BASE STYLES---*/
 .game {
     display: flex;
     justify-content: space-evenly;
@@ -119,7 +115,7 @@ footer {
     align-items: center;
     padding: 1% 0;
     gap:1%;
-    flex-grow:2; /* stretches game */
+    flex-grow:2; /* stretches game area*/
 }
 
 .instructions {
@@ -130,7 +126,7 @@ footer {
     padding: 0 1.5em;
     font-size: 0.9em;
     font-style: normal;
-    background: #9ABCBC; /* mathced color altered for accessibility */
+    background: #9ABCBC; /* matched color altered for accessibility */
     color: #0C211D;
     margin: 0 0 3% 0;
     border: #FFFFFF 2px solid;
@@ -143,7 +139,7 @@ footer {
 
 .controls {
     width: 95%;
-    height: 112px; /*responsive height warps*/
+    height: 112px; /*responsive height warps dimensions*/
     display: flex;
     justify-content: center;
     margin: 0 0 3% 0;
@@ -217,24 +213,8 @@ button:hover {
     background-size: 100px;
 }
 
-.finish { /*to clean up */
-    z-index: 0;
-    position: absolute;
-    color: #FFFFFF;
-    font-weight: 600;
-    font-size: 1.2em;
-}
 
-.finish2 { /*to clean up */
-    z-index: 0;
-    margin: 15px 0;
-    position: absolute;
-    color: #FFFFFF;
-    font-weight: 600;
-    font-size: 0.9em;
-}
-
-.finishSquare { /*to clean up */
+.finishSquare { 
     background-image: url("img/finish.jpg");
     background-size: cover;
 }
@@ -247,9 +227,6 @@ button:hover {
     position: absolute;
 }
 
-.divider{
-    display:none;
-}
 
 .startAgain {
     margin: 30px;
@@ -276,9 +253,6 @@ button:hover {
     border-radius: 0.5em;
 }
 
-
-
-/*needs to be after display:flex */
 .hide {
     display: none;
 }
@@ -337,7 +311,7 @@ button:hover {
 
     .controls {
         width: 35%;
-        height: 250px; /*re-configure*/
+        height: 250px; 
         max-height: 100%;
         flex-flow: row wrap;
         padding: 1em 0;
@@ -373,18 +347,4 @@ button:hover {
     .win {
         top: -30vh;
     }
-
-    /*.instructions{
-        width:39%;
-        height: 100%;
-    }
-
-    .controls {
-        width:59%;
-        height: auto;
-    }
-
-    .gameboard{
-     max-width: 40vh;
-    }*/
 }

@@ -133,7 +133,7 @@ demoLevel.addEventListener("click", function (e) {
     // select all the spaces
     const divs = document.querySelectorAll(".grid-item");
 
-    // allocate start and finish squares
+    // allocate finish square
     divs.forEach((div) => {
         // isolate div index
         const divIndex = div.getAttribute("index");
@@ -464,17 +464,6 @@ demoLevel.addEventListener("click", function (e) {
                 gridBot.setAttribute("transform", `rotate(0)`);
                 //show the win message
                 win.classList.remove("hide");
-                //change finish div appearance
-                divs.forEach((div) => {
-                    // isolate div index
-                    const divIndex = div.getAttribute("index");
-                    const divIndexNumber = parseInt(divIndex);
-                    // select for the 25th space
-                    if (divIndexNumber == 25) {
-                        const finishText = document.querySelector(".finish");
-                        finishText.innerText = "";
-                    }
-                });
             }
         };
         checkForWin();
@@ -724,19 +713,6 @@ levelTwo.addEventListener("click", function (e) {
                 startAgain.classList.remove("hide");
                 gridBot.setAttribute("transform", `rotate(0)`);
                 win.classList.remove("hide");
-
-                //change finish div appearance
-                divs.forEach((div) => {
-                    // isolate div index
-                    const divIndex = div.getAttribute("index");
-                    const divIndexNumber = parseInt(divIndex);
-                    // select for the 100th space
-                    if (divIndexNumber == 100) {
-                        const finishText = document.querySelector(".finish");
-                        finishText.innerText = "";
-                        console.log("Show Finish");
-                    }
-                });
             }
         };
         checkForWin();

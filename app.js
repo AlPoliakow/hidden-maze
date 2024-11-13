@@ -624,9 +624,9 @@ levelTwo.addEventListener("click", function (e) {
                             div.appendChild(gridBot);
                         }
                     } else if (parent == 91 | parent == 92 | parent == 93 | parent == 95 | parent == 96 | parent == 97 | parent == 98 | parent == 100) {
-                        instructions.innerText = "Oops! You've hit a wall <br><br> Click the buttons to turn and move to the checkered finish square";
+                        instructions.innerHTML = "Click the buttons to turn and move the creature to the finish <br><br> Be careful to avoid the hidden walls!";
                     } else {
-                        instructions.innerText = "Oops! You've hit a wall <br><br> Click the buttons to turn and move to the checkered finish square";
+                        instructions.innerHTML = "Click the buttons to turn and move the creature to the finish <br><br> Be careful to avoid the hidden walls!";
                         //select for the div below 
                         if (divIndexNumber == parentUndery) {
                             div.classList.add("wall");
@@ -646,9 +646,9 @@ levelTwo.addEventListener("click", function (e) {
                             div.appendChild(gridBot);
                         }
                     } else if (parent == 1 | parent == 11 | parent == 21 | parent == 31 | parent == 41 | parent == 71 | parent == 81 | parent == 91) {
-                        instructions.innerText = "Oops! You've hit a wall <br><br> Click the buttons to turn and move to the checkered finish square";
+                        instructions.innerHTML = "Click the buttons to turn and move the creature to the finish <br><br> Be careful to avoid the hidden walls!";
                     } else {
-                        instructions.innerText = "Oops! You've hit a wall <br><br> Click the buttons to turn and move to the checkered finish square";
+                        instructions.innerHTML = "Click the buttons to turn and move the creature to the finish <br><br> Be careful to avoid the hidden walls!";
                         //select for the div below 
                         if (divIndexNumber == parentLefty) {
                             div.classList.add("wall");
@@ -669,9 +669,9 @@ levelTwo.addEventListener("click", function (e) {
                             div.appendChild(gridBot);
                         }
                     } else if (parent == 10 | parent == 20 | parent == 30 | parent == 40 | parent == 50 | parent == 60 | parent == 70 | parent == 80 | parent == 90 | parent == 100) {
-                        instructions.innerText = "Oops! You've hit a wall <br><br> Click the buttons to turn and move to the checkered finish square";
+                        instructions.innerHTML = "Click the buttons to turn and move the creature to the finish <br><br> Be careful to avoid the hidden walls!";
                     } else {
-                        instructions.innerText = "Oops! You've hit a wall <br><br> Click the buttons to turn and move to the checkered finish square";
+                        instructions.innerHTML = "Click the buttons to turn and move the creature to the finish <br><br> Be careful to avoid the hidden walls!";
                         //select for the div below 
                         if (divIndexNumber == parentRighty) {
                             div.classList.add("wall");
@@ -692,9 +692,9 @@ levelTwo.addEventListener("click", function (e) {
                             div.appendChild(gridBot);
                         }
                     } else if (parent == 1 | parent == 3 | parent == 5 | parent == 7 | parent == 8 | parent == 9 | parent == 10) {
-                        instructions.innerText = "Oops! You've hit a wall <br><br> Click the buttons to turn and move to the checkered finish square";
+                        instructions.innerHTML = "Click the buttons to turn and move the creature to the finish <br><br> Be careful to avoid the hidden walls!";
                     } else {
-                        instructions.innerText = "Oops! You've hit a wall <br><br> Click the buttons to turn and move to the checkered finish square";
+                        instructions.innerHTML = "Click the buttons to turn and move the creature to the finish <br><br> Be careful to avoid the hidden walls!";
                         //select for the div below 
                         if (divIndexNumber == parentUppy) {
                             div.classList.add("wall");

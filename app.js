@@ -35,16 +35,6 @@ levelTwo.innerHTML = "Level <br> 2";
 levelTwo.classList.add("levelTwo");
 levelSelect.appendChild(levelTwo);
 
-//create a footer section
-const footer = document.createElement("footer");
-app.appendChild(footer);
-
-//create written by section
-const by = document.createElement("p");
-by.innerText = "By Al Poliakow 2024";
-by.classList.add("by");
-footer.appendChild(by);
-
 //create Start Again button and hide it
 const startAgain = document.createElement("button");
 startAgain.innerText = "Start again";

@@ -48,7 +48,7 @@ main {
     display: flex;
     /*justify-content: space-evenly;*/
     flex-direction: column;
-    min-height: calc(100% - 90px);
+    min-height: calc(100% - 50px);
     align-items: center;
 }
 
@@ -91,26 +91,6 @@ main {
 
 .levelTwo {
     align-self: flex-end;
-}
-
-
-footer {
-    width: 100%;
-    background: #0C211D;
-    height:40px;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
- }
-
-.by {
-    text-align: center;
-    font-weight: 600;
-    font-size: 1em;
-    margin:0.5em 0;
-    text-transform: uppercase;
-    font-style: normal;
-    color: #FFFFFF;
 }
 
 /*---GAME BASE STYLES---*/
@@ -280,7 +260,7 @@ button:hover {
 
     /*---TABLET MAIN STYLES---*/
     main{
-        min-height: calc(100% - 130px); /* minus header and footer heights */
+        min-height: calc(100% - 80px); /* minus header height */
     }
 
     .levels {
@@ -291,11 +271,6 @@ button:hover {
     .levels button{
         width: 30%;
         margin: 0 10%;
-    }
-
-    /*---TABLET FOOTER STYLES---*/
-    footer{
-        height: 50px;
     }
   
     /*---TABLET GAME STYLES---*/

@@ -26,11 +26,13 @@ levelSelect.classList.add("levels");
 main.appendChild(levelSelect);
 //demo level button
 const demoLevel = document.createElement("button");
-demoLevel.innerText = "Level 1";
+demoLevel.innerHTML = "Level <br> 1";
+demoLevel.classList.add("levelOne");
 levelSelect.appendChild(demoLevel);
 // level 2 button
 const levelTwo = document.createElement("button");
-levelTwo.innerText = "Level 2";
+levelTwo.innerHTML = "Level <br> 2";
+levelTwo.classList.add("levelTwo");
 levelSelect.appendChild(levelTwo);
 
 //create a footer section

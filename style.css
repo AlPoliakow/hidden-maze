@@ -95,13 +95,10 @@ main {
 
 /*---GAME BASE STYLES---*/
 .game {
+    padding: 10px 0;
     display: flex;
-    justify-content: space-evenly;
-    flex-direction: column;
-    align-items: center;
-    padding: 1% 0;
-    gap:1%;
-    flex-grow:2; /* stretches game area*/
+    justify-content: center;
+    flex-flow: row wrap;
 }
 
 .instructions {
@@ -161,7 +158,8 @@ button:hover {
 }
 
 .gameboard {
-    width: 68%;
+    width: 95%;
+    max-width: 50vh;
     background-color: #044707;
     display: flex;
     flex-flow: row wrap;
